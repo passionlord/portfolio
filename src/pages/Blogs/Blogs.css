@@ -1,0 +1,70 @@
+.blog__section {
+  margin: 14rem 170px 18rem;
+}
+
+.blog__section-title .title-h1 {
+  font-size: 5.5rem;
+}
+
+.blog__section-title .bio-p {
+  font-size: 2rem;
+  width: 75%;
+  letter-spacing: 1px;
+  font-family: "McLaren", cursive;
+}
+
+.blog__section-buttons .viewworkButton {
+  margin: 20px;
+  padding: 12px 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.3s ease;
+  margin-left: 0;
+  font-size: 1.2rem;
+}
+
+.blog__section-buttons .viewworkButton:hover {
+  transform: scale(1.07);
+  background-color: #414a4c;
+  color: #fff;
+}
+
+.disable {
+  display: none;
+}
+
+.dropdownButton {
+  margin: 20px;
+  padding: 12px 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.3s ease;
+  margin-left: 0;
+  font-size: 1.2rem;
+}
+
+.dropdownButton:hover {
+  transform: scale(1.07);
+  background-color: #414a4c;
+  color: #fff;
+}
+
+.logoutButton {
+  width: 100%;
+  border: none;
+  background-color: #fff;
+  text-align: left;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.logoutButton:hover {
+  background-color: rgb(231, 231, 231);
+}

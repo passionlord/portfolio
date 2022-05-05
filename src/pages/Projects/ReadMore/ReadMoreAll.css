@@ -1,0 +1,159 @@
+.personalWrapper {
+  margin: 14rem 170px 18rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.personalWrapper__title {
+  position: relative;
+}
+
+.personalWrapper__title > .personalWrapper__title-h1 {
+  font-family: 500;
+  font-family: "Nunito", sans-serif;
+  font-size: 4rem;
+  position: relative;
+  color: #102b4c;
+  z-index: 1;
+}
+
+.personalWrapper__title > .personalWrapper__title-h1::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 5px;
+  width: 1.3em;
+
+  height: 7px;
+  border-radius: 50px;
+  background-color: #102b4c;
+}
+
+.personalWrapper__title > span {
+  font-family: Medium 500;
+  font-size: 8rem;
+  position: absolute;
+  opacity: 6%;
+  left: -160px;
+  top: -58px;
+}
+
+.personalWrapper > .personalWrapper__image {
+  border: 1px solid black;
+  object-fit: contain;
+  margin-top: 13rem;
+  margin-bottom: 5rem;
+}
+
+.personalWrapper > .personalWrapper__image > img {
+  width: 100%;
+}
+
+.personalWrapper > .githubLink {
+  padding: 8px 27px;
+  border: none;
+  background-color: #846df6;
+  color: #fff;
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.personalWrapper > .githubLink > .githubIcon {
+  margin-bottom: 3px;
+  margin-left: 5px;
+}
+
+.personalWrapper > .personalWrapper__para {
+  background-color: #e8e8e8;
+  padding: 40px 35px;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.25rem;
+  line-height: 2;
+  margin-bottom: 8rem;
+}
+
+.personalWrapper > h1 {
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.personalWrapper .personalWrapper__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.personalWrapper .personalWrapper__tags .tags {
+  padding: 8px 35px;
+  color: #fff;
+  /* margin-right: 20px; */
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.tags:nth-of-type(1) {
+  background-color: #4e31de;
+}
+
+.tags:nth-of-type(2) {
+  background-color: #149418;
+}
+.tags:nth-of-type(3) {
+  background-color: #f6926d;
+}
+.tags:nth-of-type(4) {
+  background-color: #f84040;
+}
+.tags:nth-of-type(5) {
+  background-color: #846df6;
+}
+.tags:nth-of-type(6) {
+  background-color: #846df6;
+}
+.tags:nth-of-type(7) {
+  background-color: #f6926d;
+}
+.tags:nth-of-type(8) {
+  background-color: #846df6;
+}
+.tags:nth-of-type(9) {
+  background-color: #149418;
+}
+
+@media screen and (max-width: 1150px) {
+  .personalWrapper {
+    margin: 14rem 110px 18rem;
+  }
+
+  .personalWrapper__title > span {
+    left: -110px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .personalWrapper {
+    margin: 14rem 20px 18rem;
+  }
+
+  .personalWrapper__title > .personalWrapper__title-h1 {
+    font-size: 3rem;
+  }
+
+  .personalWrapper__title > span {
+    font-size: 7rem;
+    top: -50px;
+  }
+
+  .personalWrapper__title > span {
+    left: -20px;
+  }
+
+  .personalWrapper > .personalWrapper__image {
+    margin-top: 6rem;
+  }
+
+  .personalWrapper > .personalWrapper__para {
+    padding: 40px 25px;
+  }
+}

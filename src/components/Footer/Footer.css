@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  height: 38vh;
+  background-color: #212529;
+  color: #fff;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.footer__wrapper-icons img {
+  width: 38px;
+  color: #fff;
+  margin: 20px 10px;
+  transition: 0.3s ease;
+}
+
+.footer__wrapper-info span {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 1.7rem;
+  margin: 20px 0;
+}
+
+.footer__wrapper-info p {
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+}
+
+.footer__wrapper-icons img:hover {
+  transform: scale(1.4);
+}

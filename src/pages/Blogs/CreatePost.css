@@ -1,0 +1,93 @@
+.createPostPage {
+  margin: 16rem 190px 18rem;
+}
+
+.createPostPage .cpHero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.createPostPage .cpHero h1 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+  margin-top: -50px;
+  margin-left: -34px;
+  font-family: "McLaren", cursive;
+}
+
+.createPostPage .cpHero .gif {
+  position: relative;
+  margin-right: 15px;
+}
+
+.createPostPage .cpHero .gif::before {
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border: 5px solid black;
+  z-index: 1;
+  position: absolute;
+  padding: 190px;
+}
+
+.createPostPage .cpHero .gif::after {
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border: 40px solid #9b1d4d;
+  padding: 150px;
+  position: absolute;
+  z-index: -2;
+  transform: rotate(50deg);
+}
+
+.cpContainer {
+  margin-top: 14rem;
+  border: 2px solid #000;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  font-family: "McLaren", cursive;
+}
+
+.cpContainer .inputGp {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+}
+
+.cpContainer .inputGp label {
+  color: black;
+  font-weight: bold;
+  font-family: "McLaren", cursive;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.cpContainer .inputGp textarea,
+.cpInput {
+  width: 100%;
+  border-radius: 6px;
+  padding: 10px;
+  border: none;
+  background-color: #f5f2f2;
+}
+
+.cpContainer .cpButton {
+  margin: 20px 0;
+  padding: 12px 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.3s ease;
+}

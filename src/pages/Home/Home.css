@@ -1,0 +1,261 @@
+.hero__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+  position: relative;
+  transform: translate(-20px, 0);
+}
+
+.hero__wrapper .hero__wrapper-title {
+  margin-right: 100px;
+}
+
+.hero__wrapper .hero__wrapper-title h1 {
+  font-size: 4rem;
+  text-align: right;
+  margin-bottom: 50px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hero__wrapper-title .hero__wrapper-icons {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+.hero__wrapper-title .hero__wrapper-icons li {
+  margin: 0 0.6rem;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.hero__wrapper-icons li a {
+  color: #000;
+}
+
+.hero__wrapper-icons li:hover {
+  transform: scale(2);
+}
+
+.hero__wrapper-text {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero__wrapper-text .hero__wrapper-info {
+  text-decoration: underline;
+  margin: 20px 0;
+}
+
+.hero__wrapper-text .hero__wrapper-bio {
+  margin: 0 30rem;
+  text-align: left;
+  background-color: rgb(236, 236, 236);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* interest section */
+
+.interest {
+  margin: 15rem 190px;
+}
+
+.interest__cooking-wrapper,
+.interest__illustration-wrapper,
+.interest__design-wrapper {
+  margin: 8rem 0;
+}
+
+.interest span {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 1.9rem;
+}
+
+.interest h1 {
+  text-align: center;
+  font-family: "Berkshire Swash", cursive;
+  font-size: 2.8rem;
+}
+
+.interest__cooking,
+.interest__illustration,
+.interest__design {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.interest__cooking img,
+.interest__illustration img,
+.interest__design img {
+  width: 40%;
+  height: 40%;
+  transition: 0.1s ease;
+  z-index: 2;
+}
+
+.interest__cooking img:hover,
+.interest__illustration img:hover,
+.interest__design img:hover {
+  transform: scale(1.02);
+}
+
+.interest__cooking p,
+.interest__illustration p,
+.interest__design p {
+  width: 50%;
+  font-size: 1.15rem;
+  font-family: "Montserrat", sans-serif;
+  color: #747474;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* media queries */
+@media screen and (max-width: 2000px) {
+}
+
+@media screen and (max-width: 1150px) {
+  .hero__wrapper {
+    transform: translate(0, 0);
+  }
+
+  .hero__wrapper .hero__wrapper-title h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero__wrapper-text .hero__wrapper-bio {
+    margin: 0 15rem;
+  }
+
+  /* interests */
+
+  .interest {
+    margin: 10rem 100px;
+  }
+
+  .interest__cooking img,
+  .interest__illustration img,
+  .interest__design img {
+    width: 50%;
+    height: 40%;
+    margin: 10px;
+  }
+
+  .interest__cooking p,
+  .interest__illustration p,
+  .interest__design p {
+    width: 50%;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    color: #747474;
+    margin: 5px auto;
+  }
+
+  .interest span {
+    font-size: 1.8rem;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .hero__wrapper .hero__wrapper-title h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .hero__wrapper .hero__wrapper-title {
+    margin-right: 50px;
+    margin-top: 23rem;
+    margin-left: 50px;
+  }
+
+  .hero__wrapper-title .hero__wrapper-icons {
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    margin-top: -20px;
+  }
+
+  .hero__wrapper {
+    flex-direction: column;
+  }
+
+  .hero__wrapper-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    border: 0;
+    text-align: center;
+  }
+
+  .hero__wrapper-image img {
+    border: 1px solid black;
+    width: 70%;
+    border-radius: 100%;
+  }
+
+  .hero__wrapper-text .hero__wrapper-bio {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    font-size: 1.2rem;
+  }
+
+  /* interests */
+
+  .interest {
+    margin: 10rem 20px;
+  }
+
+  .interest__cooking,
+  .interest__illustration,
+  .interest__design {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    background-color: #fdf5e8;
+    border-top: 5px solid #330033;
+    padding: 5px;
+  }
+
+  .interest__cooking img,
+  .interest__illustration img,
+  .interest__design img {
+    width: 100%;
+    height: 40%;
+  }
+
+  .interest__cooking p,
+  .interest__illustration p,
+  .interest__design p {
+    width: 100%;
+    font-size: 1.16rem;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    margin: 5px auto;
+    padding: 5px;
+  }
+
+  .interest span {
+    font-size: 1.8rem;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .interest h1 {
+    font-family: "Montserrat", sans-serif;
+  }
+}
