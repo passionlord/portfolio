@@ -1,6 +1,6 @@
 import React from "react";
 import { BsTrash } from "react-icons/bs";
-import { Link } from "react-router-dom";
+
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import "./BlogsData.css";
@@ -36,6 +36,7 @@ const BlogsData = ({ isAuth }) => {
   //read more
   function openMore() {
     console.log("pressed");
+    window.location.pathname = "/posts/post.title";
   }
 
   return (

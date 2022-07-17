@@ -21,6 +21,11 @@ const ReadMore1 = (props) => {
 
       <p className="personalWrapper__para">{contents[1].projectInfo}</p>
 
+      <h1>My Role</h1>
+      <p className="personalWrapper__para">
+        UI Designer / Building the Frontend Website{" "}
+      </p>
+
       <h1>Technologies Used</h1>
       <div className="personalWrapper__tags">
         <span className="tags">REACT.JS</span>

@@ -28,29 +28,29 @@ const Blogs = ({ isAuth, setIsAuth }) => {
           <button className="viewworkButton">View Work</button>
 
           <div
-            class="btn-group"
+            className="btn-group"
             role="group"
             aria-label="Button group with nested dropdown"
           >
-            <div class="btn-group" role="group">
+            <div className="btn-group" role="group">
               <button
                 id="btnGroupDrop1"
                 type="button"
-                class="btn dropdownButton dropdown-toggle"
+                className="btn dropdownButton dropdown-toggle"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Post Your Blog
               </button>
-              <ul class="dropdown-menu " aria-labelledby="btnGroupDrop1">
+              <ul className="dropdown-menu " aria-labelledby="btnGroupDrop1">
                 <li>
                   {!isAuth ? (
-                    <Link class="dropdown-item" to="/login">
+                    <Link className="dropdown-item" to="/login">
                       Login
                     </Link>
                   ) : (
                     <>
-                      <Link class="dropdown-item" to="/createpost">
+                      <Link className="dropdown-item" to="/createpost">
                         Create Post
                       </Link>
                       <button className="logoutButton" onClick={signUserOut}>

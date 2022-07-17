@@ -19,7 +19,7 @@ const ReadMore1 = (props) => {
         Visit Github <BsGithub className="githubIcon" fontSize="20" />
       </button>
 
-      {/* <p className="personalWrapper__para">{contents[2].projectInfo}</p> */}
+      <p className="personalWrapper__para">{contents[2].projectInfo}</p>
 
       <h1>Technologies Used</h1>
       <div className="personalWrapper__tags">
