@@ -91,7 +91,6 @@
   gap: 20px;
   font-family: "Montserrat", sans-serif;
   place-items: center;
-  width: fit-content;
 }
 
 .interest__design-wrapper,
@@ -112,7 +111,7 @@
   border: 1.8px solid #000;
   border-radius: 7px;
   width: 100%;
-  height: 31rem;
+  height: auto;
   padding: 20px;
   font-size: 17px;
 }
@@ -251,25 +250,15 @@
     margin-bottom: 10rem;
     margin-right: 20px;
     margin-left: 20px;
+    display: block;
   }
 
   .interest__design-wrapper,
   .interest__cooking-wrapper,
   .interest__code-wrapper {
-    width: 100%;
+    width: 100% !important;
     height: 100%;
-  }
-
-  .interest__cooking-wrapper {
-    grid-row: 1;
-  }
-
-  .interest__design-wrapper {
-    grid-row: 2;
-  }
-
-  .interest__code-wrapper {
-    grid-row: 3;
+    margin-bottom: 20px;
   }
 
   .interest__design,
