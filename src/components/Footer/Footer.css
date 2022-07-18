@@ -12,7 +12,7 @@
   width: 38px;
   color: #fff;
   margin: 20px 10px;
-  transition: 0.3s ease;
+  transition: 0.4s ease;
 }
 
 .footer__wrapper-info span {
@@ -27,5 +27,5 @@
 }
 
 .footer__wrapper-icons img:hover {
-  transform: scale(1.4);
+  transform: scale(0.8);
 }

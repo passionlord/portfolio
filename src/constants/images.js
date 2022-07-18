@@ -1,6 +1,4 @@
-import illust from "../assets/illust.png";
 import man from "../assets/man.png";
-import des from "../assets/des.png";
 import cook from "../assets/cook.png";
 import linkedin from "../assets/linkedin.png";
 import github from "../assets/github.png";
@@ -11,12 +9,12 @@ import car from "../assets/car.jpg";
 import voting from "../assets/voting.PNG";
 import website from "../assets/website.PNG";
 import inverter from "../assets/inverter.jpg";
+import code from "../assets/code.png";
+import design from "../assets/design.png";
+import interest from "../assets/interest.png";
 
 export default {
-  illust,
   man,
-  des,
-  cook,
   linkedin,
   github,
   vighnesh,
@@ -26,4 +24,8 @@ export default {
   voting,
   website,
   inverter,
+  cook,
+  design,
+  code,
+  interest,
 };

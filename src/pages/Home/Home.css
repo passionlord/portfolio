@@ -35,7 +35,7 @@
 }
 
 .hero__wrapper-icons li:hover {
-  transform: scale(2);
+  transform: scale(0.8);
 }
 
 .hero__wrapper-text {
@@ -60,61 +60,79 @@
 
 /* interest section */
 
-.interest {
-  margin: 15rem 190px;
-}
-
-.interest__cooking-wrapper,
-.interest__illustration-wrapper,
-.interest__design-wrapper {
-  margin: 8rem 0;
-}
-
-.interest span {
-  font-family: "Berkshire Swash", cursive;
-  font-size: 1.9rem;
-}
-
-.interest h1 {
-  text-align: center;
-  font-family: "Berkshire Swash", cursive;
-  font-size: 2.8rem;
-}
-
-.interest__cooking,
-.interest__illustration,
-.interest__design {
+.interestTitle {
+  margin-top: 15rem;
+  margin-left: 190px;
+  margin-right: 190px;
   display: flex;
-  justify-content: space-between;
-  margin: 2rem 0;
-}
-
-.interest__cooking img,
-.interest__illustration img,
-.interest__design img {
-  width: 40%;
-  height: 40%;
-  transition: 0.1s ease;
-  z-index: 2;
-}
-
-.interest__cooking img:hover,
-.interest__illustration img:hover,
-.interest__design img:hover {
-  transform: scale(1.02);
-}
-
-.interest__cooking p,
-.interest__illustration p,
-.interest__design p {
-  width: 50%;
-  font-size: 1.15rem;
+  align-items: center;
   font-family: "Montserrat", sans-serif;
-  color: #747474;
-  margin-bottom: 0;
-  margin-top: 0;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  border: 1.7px solid #000;
+  border-radius: 7px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.interestTitle > h3 {
+  font-weight: 500;
+}
+
+.interestTitle > img {
+  margin-left: 10px;
+  margin-top: -30px;
+}
+
+.interest {
+  margin-bottom: 15rem;
+  margin-right: 190px;
+  margin-left: 190px;
+  margin-top: 3rem;
+  display: grid;
+  gap: 20px;
+  font-family: "Montserrat", sans-serif;
+  place-items: center;
+  width: fit-content;
+}
+
+.interest__design-wrapper,
+.interest__cooking-wrapper {
+  grid-row: 1;
+}
+
+.interest__code-wrapper {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  height: fit-content !important;
+  width: 34rem !important;
+}
+
+.interest__design-wrapper,
+.interest__cooking-wrapper,
+.interest__code-wrapper {
+  border: 1.8px solid #000;
+  border-radius: 7px;
+  width: 100%;
+  height: 31rem;
+  padding: 20px;
+  font-size: 17px;
+}
+
+.interest__design-wrapper > h3,
+.interest__cooking-wrapper > h3,
+.interest__code-wrapper > h3 {
+  font-weight: 400;
+}
+
+.interestLogo {
+  width: 11rem;
+  display: block;
+  margin-top: -12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.codeImage {
+  width: 15rem;
 }
 
 /* media queries */
@@ -135,32 +153,42 @@
   }
 
   /* interests */
+  .interestTitle {
+    margin-right: 100px;
+    margin-left: 100px;
+  }
 
   .interest {
-    margin: 10rem 100px;
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+    margin-right: 100px;
+    margin-left: 100px;
   }
 
-  .interest__cooking img,
-  .interest__illustration img,
-  .interest__design img {
-    width: 50%;
-    height: 40%;
-    margin: 10px;
+  .interest__design-wrapper,
+  .interest__cooking-wrapper,
+  .interest__code-wrapper {
+    width: 100%;
+    height: 100%;
   }
 
-  .interest__cooking p,
-  .interest__illustration p,
-  .interest__design p {
-    width: 50%;
-    font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
-    color: #747474;
-    margin: 5px auto;
+  .interest__code-wrapper {
+    height: fit-content;
+    width: 30rem;
   }
 
-  .interest span {
-    font-size: 1.8rem;
-    margin-left: 5px;
+  .interest__design,
+  .interest__cooking,
+  .interest__code {
+    font-size: 15px;
+  }
+
+  .interestLogo {
+    width: 10rem;
+  }
+
+  .codeImage {
+    width: 13rem;
   }
 }
 
@@ -212,50 +240,49 @@
 
   /* interests */
 
+  .interestTitle {
+    margin-right: 2px;
+    margin-left: 20px;
+    margin-top: 10rem;
+  }
+
   .interest {
-    margin: 10rem 20px;
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+    margin-right: 20px;
+    margin-left: 20px;
   }
 
+  .interest__design-wrapper,
+  .interest__cooking-wrapper,
+  .interest__code-wrapper {
+    width: 180%;
+    height: 100%;
+  }
+
+  .interest__cooking-wrapper {
+    grid-row: 1;
+  }
+
+  .interest__design-wrapper {
+    grid-row: 2;
+  }
+
+  .interest__code-wrapper {
+    grid-row: 3;
+  }
+
+  .interest__design,
   .interest__cooking,
-  .interest__illustration,
-  .interest__design {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem 0;
-    background-color: #fdf5e8;
-    border-top: 5px solid #330033;
-    padding: 5px;
+  .interest__code {
+    font-size: 15px;
   }
 
-  .interest__cooking img,
-  .interest__illustration img,
-  .interest__design img {
-    width: 100%;
-    height: 40%;
+  .interestLogo {
+    width: 10rem;
   }
 
-  .interest__cooking p,
-  .interest__illustration p,
-  .interest__design p {
-    width: 100%;
-    font-size: 1.16rem;
-    font-family: "Montserrat", sans-serif;
-    color: black;
-    margin: 5px auto;
-    padding: 5px;
-  }
-
-  .interest span {
-    font-size: 1.8rem;
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-    text-align: center;
-    font-weight: 600;
-  }
-
-  .interest h1 {
-    font-family: "Montserrat", sans-serif;
+  .codeImage {
+    width: 13rem;
   }
 }

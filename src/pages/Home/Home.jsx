@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { images } from "../../constants";
 import "./Home.css";
 import { BsLinkedin, BsInstagram, BsTwitter, BsFacebook } from "react-icons/bs";
+import { ImPinterest2 } from "react-icons/im";
 
 const Home = () => {
   return (
@@ -53,10 +54,17 @@ const Home = () => {
         </p>
       </div>
 
+      {/* INTERESTS SECTION */}
+
+      <div className="interestTitle">
+        <h3>INTERESTS</h3>
+        <ImPinterest2 fontSize={28} />
+        {/* <img src={images.interest} alt="interest" width="130"></img> */}
+      </div>
       <div className="interest">
-        <h1>INTERESTS</h1>
         <div className="interest__cooking-wrapper">
-          <span>COOKING</span>
+          <img className="interestLogo" src={images.cook} alt="Cooking"></img>
+          <h3>COOKING</h3>
           <div className="interest__cooking">
             <p>
               In my life, I like to do lot of activities those activities help
@@ -67,34 +75,38 @@ const Home = () => {
               it in a mix and made some delicious dishes. Since then I had been
               cooking my own food when I was home or I have a lot of free time.
             </p>
-            <img src={images.cook} alt="cook"></img>
-          </div>
-        </div>
-        <div className="interest__illustration-wrapper">
-          <span>ILLUSTRATION</span>
-          <div className="interest__illustration">
-            <img src={images.illust} alt="cook"></img>
-            <p>
-              creativity , imagination and inspiration is my key value for
-              making appealing designs , posts using softwares such is Lunacy,
-              adobe xd , figma , adobe illustrator
-            </p>
           </div>
         </div>
         <div className="interest__design-wrapper">
-          <span>DESIGN</span>
+          <img className="interestLogo" src={images.design} alt="design"></img>
+          <h3>DESIGN</h3>
           <div className="interest__design">
             <p>
-              Creativity is my first dexterity. it's a place where imagination
-              and colour can bring a world to life in our eyes. It has been my
-              interest creating UI designs to experiment them and to eventually
-              build them , I loved it. I loved the thrill. I love to see my
-              imagination come to life. I loved gadgets. I choose to be a web
-              designer to bring my ideas to life and help others see what I
-              think a better world looks like. Designing something is like a
-              rainbow with various colors it brightens the mind .
+              Creativity is my first dexterity. It has been my interest creating
+              UI designs to experiment them and to eventually build them , I
+              loved it. I loved the thrill. I love to see my imagination come to
+              life. I loved gadgets. I choose to be a web designer to bring my
+              ideas to life and help others see what I think a better world
+              looks like. Designing something is like a rainbow with various
+              colors it brightens the mind .
             </p>
-            <img src={images.des} alt="cook"></img>
+          </div>
+        </div>
+        <div className="interest__code-wrapper">
+          <img
+            className="interestLogo codeImage"
+            src={images.code}
+            alt="code"
+          ></img>
+          <h3>CODE</h3>
+
+          <div className="interest__code">
+            <p>
+              I am a creative designer and a developer , who aims to work with
+              best projects of myself and also to work with future companies I
+              offer both design and FrontEnd Development services of web
+              applications or websites.
+            </p>
           </div>
         </div>
       </div>
