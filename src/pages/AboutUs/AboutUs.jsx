@@ -1,6 +1,7 @@
 import React from "react";
 import { images } from "../../constants";
 import "./AboutUs.css";
+import Testimonial from "./Testimonial";
 
 const AboutUs = () => {
   return (
@@ -56,27 +57,8 @@ const AboutUs = () => {
       </div>
 
       {/* Testimonial */}
-      <div className="testimonial">
-        <h1>On Working With Me</h1>
 
-        <div className="testimonial__details">
-          <div className="testimonial__details-person">
-            <img src={images.venu} alt="" width="130"></img>
-            <p className="name">Venugopal Poojary</p>
-            <p className="designation">Engineering Student</p>
-          </div>
-          <div className="testimonial__details-text">
-            <p>
-              Vighnesh is a very sincere and efficient worker. He is good at
-              keeping things neat and organised. Always a team player and loyal
-              to his duties and work. He is an excellent listener and gives
-              sensible responses. I have always enjoyed his company. He never
-              fails to come up with good designs and ways to develop something
-              in the most efficient way.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Testimonial />
 
       {/* download resume */}
       <div className="resume">

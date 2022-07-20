@@ -1,5 +1,5 @@
 .about {
-  margin: 14rem 190px 18rem;
+  margin: 14rem 190px 8rem;
 }
 
 .about__wrapper {
@@ -71,7 +71,7 @@
 
 .about__career .about__career-skills .skills {
   /* border: 1px solid #808080; */
-  border: 2px solid rgba(128, 128, 128, 25%);
+  border: 2px solid rgba(88, 88, 88, 0.25);
   /* border: opacity 80%; */
   border-radius: 8px;
   padding: 6px;
@@ -89,75 +89,9 @@
 
 /* Testimonials */
 
-.testimonial {
-  margin: -7rem 180px 10rem;
-  background-color: #f6f6f6;
-  padding: 20px 10px;
-  border-radius: 20px;
-  border: 2px solid #000;
-}
-
-.testimonial h1 {
-  /* font-family: "Berkshire Swash", cursive; */
-  font-family: "Montserrat", sans-serif;
-  font-size: 2.6rem;
-  margin-left: 10px;
-  letter-spacing: 1.1px;
-  padding: 5px 10px;
-  font-weight: 700;
-}
-
-.testimonial__details {
-  display: flex;
-  justify-content: space-between;
-  font-family: "Montserrat", sans-serif;
-  margin-top: 40px;
-}
-
-.testimonial__details .testimonial__details-person {
-  text-align: center;
-  width: 40%;
-  /* padding-left: 10px; */
-  letter-spacing: 1.2px;
-}
-
-.testimonial__details .testimonial__details-text {
-  width: 100%;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  padding-right: 20px;
-  padding-top: 25px;
-  padding-left: 30px;
-  color: #747474;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.testimonial__details .testimonial__details-person img {
-  border-radius: 100%;
-  transition: 0.3s ease;
-}
-
-.testimonial__details .testimonial__details-person img:hover {
-  transform: scale(1.05);
-}
-
-.testimonial__details .testimonial__details-person .name {
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-top: 17px;
-}
-
-.testimonial__details .testimonial__details-person .designation {
-  color: #747474;
-  margin-top: -10px;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
 /* download resume */
 .resume {
-  margin: 5rem 170px;
+  margin: 8rem 170px;
   display: flex;
   align-items: center;
 }

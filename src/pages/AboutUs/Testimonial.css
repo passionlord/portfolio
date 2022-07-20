@@ -1,0 +1,64 @@
+.testimonial {
+  margin: 2rem 170px 10rem 170px;
+  padding-right: 5rem;
+}
+
+.testimonial > h1 {
+  margin-bottom: 6rem;
+  margin-left: 2rem;
+  border: 2px solid #000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: 1.1px;
+  padding: 0.5rem 2rem;
+  font-weight: 600;
+}
+
+.testimonialCarousel {
+  padding: 5rem 5rem 2rem 5rem;
+  border: 3px solid #000;
+  border-radius: 15px;
+  margin-left: 7rem;
+  position: relative;
+}
+
+.testimonialCarouselInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.testimonialCarouselInner > img {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  border: 3px solid #000;
+  position: absolute;
+  transform: translateX(-10rem);
+  top: 5rem;
+}
+
+.testimonialCarouselInner > p {
+  width: 100%;
+  /* transform: translateX(25%); */
+  font-size: 17.5px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 3rem;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.testimonialCarouselBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.testimonialCarouselBottom > .name {
+  font-weight: bold;
+}
+
+.testimonialCarouselBottom > .degree {
+  font-size: 13px;
+}
