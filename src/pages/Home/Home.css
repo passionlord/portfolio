@@ -5,10 +5,14 @@
   margin-top: 10rem;
   position: relative;
   transform: translate(-20px, 0);
+  width: 50rem;
 }
 
 .hero__wrapper .hero__wrapper-title {
-  margin-right: 100px;
+  margin-right: 60px;
+  padding-right: 53px;
+  border-right: 1px solid #000;
+  margin-bottom: 0;
 }
 
 .hero__wrapper .hero__wrapper-title h1 {
@@ -199,8 +203,10 @@
 
   .hero__wrapper .hero__wrapper-title {
     margin-right: 50px;
-    margin-top: 23rem;
+    margin-top: 19rem;
     margin-left: 50px;
+    padding-right: 0%;
+    border: none;
   }
 
   .hero__wrapper-title .hero__wrapper-icons {
@@ -212,6 +218,7 @@
 
   .hero__wrapper {
     flex-direction: column;
+    width: fit-content;
   }
 
   .hero__wrapper-image {
@@ -224,9 +231,8 @@
   }
 
   .hero__wrapper-image img {
-    border: 1px solid black;
-    width: 70%;
-    border-radius: 100%;
+    width: 70% !important;
+    height: 50%;
   }
 
   .hero__wrapper-text .hero__wrapper-bio {

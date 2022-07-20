@@ -38,10 +38,14 @@ const Home = () => {
         </div>
         <div className="hero__wrapper-image">
           <img
-            src={images.man}
+            src={images.vighnesh3}
             alt="man"
-            width="390"
-            style={{ borderLeft: "1px solid grey" }}
+            width="290"
+            height="300"
+            style={{
+              marginBottom: "30px",
+              borderRadius: "40px",
+            }}
           ></img>
         </div>
       </div>

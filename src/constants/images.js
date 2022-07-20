@@ -12,6 +12,8 @@ import inverter from "../assets/inverter.jpg";
 import code from "../assets/code.png";
 import design from "../assets/design.png";
 import interest from "../assets/interest.png";
+import vighnesh2 from "../assets/vighnesh2.png";
+import vighnesh3 from "../assets/vighnesh3.png";
 
 export default {
   man,
@@ -28,4 +30,6 @@ export default {
   design,
   code,
   interest,
+  vighnesh2,
+  vighnesh3,
 };
