@@ -196,6 +196,10 @@
 }
 
 @media screen and (max-width: 650px) {
+  .hero__wrapper {
+    margin-top: 8rem;
+  }
+
   .hero__wrapper .hero__wrapper-title h1 {
     font-size: 2.5rem;
     text-align: center;
