@@ -25,7 +25,7 @@
 .about__career-info p {
   font-size: 17.5px;
   font-family: "Montserrat", sans-serif;
-  color: #5e5d5d;
+  color: #000;
   font-weight: 600;
   letter-spacing: 0.4px;
   line-height: 1.6;
@@ -311,12 +311,12 @@ textarea {
   }
 
   .about__wrapper .about__wrapper-info p {
-    text-align: left;
+    text-align: justify;
   }
 
   .about__wrapper .about__wrapper-info p,
   .about__career-info p {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .about__wrapper .about__wrapper-info h1,
@@ -345,7 +345,7 @@ textarea {
     gap: 10px;
   }
 
-  .testimonial {
+  /* .testimonial {
     background-color: #eeeeee;
   }
 
@@ -385,7 +385,7 @@ textarea {
   .testimonial__details .testimonial__details-person .designation {
     font-size: 1.2rem;
     margin-top: -10px;
-  }
+  } */
 
   /* resume */
   .resume {
