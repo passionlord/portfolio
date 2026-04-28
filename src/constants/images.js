@@ -15,7 +15,7 @@ import interest from "../assets/interest.png";
 import vighnesh2 from "../assets/vighnesh2.png";
 import vighnesh3 from "../assets/vighnesh3.png";
 
-export default {
+const images = {
   man,
   linkedin,
   github,
@@ -33,3 +33,5 @@ export default {
   vighnesh2,
   vighnesh3,
 };
+
+export default images;
