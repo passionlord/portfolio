@@ -77,15 +77,16 @@ const Home = () => {
               className="hero-role"
               variants={itemVariants}
             >
-              Frontend UI/UX Designer & Developer
+              Business Intelligence & Data Analyst
             </motion.p>
             
             <motion.p 
               className="hero-description"
               variants={itemVariants}
             >
-              I craft beautiful, functional, and user-centered digital experiences. 
-              Passionate about creating intuitive interfaces that solve real problems.
+              Data professional with 3+ years of experience designing and maintaining data pipelines, ETL workflows, 
+              and analytics solutions. Passionate about building AI-enabled data systems that transform business 
+              decision-making with Power BI, SQL, SSIS, and cutting-edge AI technologies.
             </motion.p>
             
             <motion.div 
@@ -117,7 +118,7 @@ const Home = () => {
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">
                 <BsTwitter />
               </a>
-              <a href="mailto:your@email.com" className="social-link">
+              <a href="mailto:raikar7178@gmail.com" className="social-link">
                 <HiMail />
               </a>
             </motion.div>
@@ -138,13 +139,13 @@ const Home = () => {
               <div className="visual-gradient"></div>
             </div>
             <div className="floating-badge badge-1">
-              <span>✨ UI/UX</span>
+              <span>📊 Data Analytics</span>
             </div>
             <div className="floating-badge badge-2">
-              <span>💻 Frontend</span>
+              <span>🤖 AI Solutions</span>
             </div>
             <div className="floating-badge badge-3">
-              <span>🎨 Design</span>
+              <span>⚡ ETL Pipelines</span>
             </div>
           </motion.div>
         </div>
@@ -165,8 +166,8 @@ const Home = () => {
             viewport={{ once: true }}
           >
             <ImPinterest2 className="section-icon" />
-            <h2>What I Love</h2>
-            <p>Passions that drive my creativity</p>
+            <h2>What I Do Best</h2>
+            <p>Core expertise and professional passions</p>
           </motion.div>
 
           <div className="interests-grid">
@@ -179,15 +180,15 @@ const Home = () => {
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
               <div className="interest-icon">
-                <img src={images.cook} alt="Cooking" />
+                <img src={images.cook} alt="Data Analytics" />
               </div>
-              <h3>COOKING</h3>
+              <h3>DATA ANALYTICS</h3>
               <p>
-                In my life, I like to do lot of activities that help me exercise and make me feel alive. 
-                My favorite activity is cooking because it's both creative and relaxing. I started cooking 
-                in high school when I was home alone and hungry - I grabbed some ingredients, experimented, 
-                and created something delicious. Since then, cooking has been my go-to activity for unwinding 
-                and expressing creativity.
+                Transforming raw data into actionable insights is my passion. I love designing interactive 
+                dashboards and creating automated ETL pipelines that empower businesses to make data-driven 
+                decisions. With Power BI, SQL, and SSIS, I build solutions that reduce processing time by 90% 
+                while improving accuracy and stakeholder visibility. Data tells a story, and I'm here to help 
+                businesses read it clearly.
               </p>
             </motion.div>
 
@@ -200,15 +201,15 @@ const Home = () => {
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
               <div className="interest-icon">
-                <img src={images.design} alt="Design" />
+                <img src={images.design} alt="AI Solutions" />
               </div>
-              <h3>DESIGN</h3>
+              <h3>AI SOLUTIONS</h3>
               <p>
-                Creativity is my first dexterity. I'm passionate about creating UI designs, experimenting 
-                with them, and bringing them to life. I love the thrill of seeing my imagination materialize. 
-                I chose to be a web designer to transform my ideas into reality and help others see what 
-                I envision as a better digital world. Designing is like painting with a rainbow of colors - 
-                it brightens the mind and inspires innovation.
+                Building AI-powered tools is where innovation meets impact. I develop intelligent systems using 
+                OpenAI GPT and RAG (Retrieval Augmented Generation) that automate complex processes and enhance 
+                user experiences. From chatbots that serve 240+ dashboards to smart categorization systems that 
+                process thousands of records automatically, I create solutions that reduce manual effort by 80% 
+                while improving accuracy and efficiency.
               </p>
             </motion.div>
 
@@ -221,14 +222,15 @@ const Home = () => {
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
               <div className="interest-icon">
-                <img src={images.code} alt="Coding" />
+                <img src={images.code} alt="Web Development" />
               </div>
-              <h3>CODING</h3>
+              <h3>WEB DEVELOPMENT</h3>
               <p>
-                I am a creative designer and developer who aims to work on amazing projects and with 
-                innovative companies. Code is poetry in motion - I find immense satisfaction in solving 
-                complex problems through elegant solutions. I offer both design and frontend development 
-                services for web applications and websites that make a difference.
+                I combine data expertise with web development to create secure, scalable applications using 
+                React and Node.js. Whether it's building financial calculation systems, automated billing 
+                solutions, or interactive data visualization tools, I craft web applications that replace 
+                manual processes and deliver measurable business value. Clean code meets powerful functionality 
+                in every project I build.
               </p>
             </motion.div>
           </div>

@@ -15,6 +15,9 @@ import ReadMore1 from "./pages/Projects/ReadMore/ReadMore1";
 import ReadMore2 from "./pages/Projects/ReadMore/ReadMore2";
 import ReadMore3 from "./pages/Projects/ReadMore/ReadMore3";
 import ReadMore4 from "./pages/Projects/ReadMore/ReadMore4";
+import ReadMore5 from "./pages/Projects/ReadMore/ReadMore5";
+import ReadMore6 from "./pages/Projects/ReadMore/ReadMore6";
+import ReadMore7 from "./pages/Projects/ReadMore/ReadMore7";
 import { supabase } from "./pages/Blogs/supabase-config";
 
 function App() {
@@ -59,6 +62,9 @@ function App() {
         <Route path="/readMore2" element={<ReadMore2 />} />
         <Route path="/readMore3" element={<ReadMore3 />} />
         <Route path="/readMore4" element={<ReadMore4 />} />
+        <Route path="/readMore5" element={<ReadMore5 />} />
+        <Route path="/readMore6" element={<ReadMore6 />} />
+        <Route path="/readMore7" element={<ReadMore7 />} />
       </Routes>
     </Layout>
   );

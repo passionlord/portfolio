@@ -3,13 +3,13 @@ import { images } from "../../constants";
 import "./AboutUs.css";
 import { motion } from "framer-motion";
 import { 
-  HiMail, HiLocationMarker, HiDownload 
+  HiMail, HiLocationMarker, HiDownload, HiDatabase, HiChartBar 
 } from "react-icons/hi";
 import { 
-  FaReact, FaHtml5, FaJs, FaFigma, 
+  FaReact, FaJs, 
   FaNodeJs, FaPython, FaGitAlt 
 } from "react-icons/fa";
-import { SiFirebase, SiMongodb, SiArduino } from "react-icons/si";
+import { SiPowerbi, SiPostgresql, SiMicrosoftsqlserver, SiOpenai, SiVisualstudio } from "react-icons/si";
 
 const AboutUs = () => {
   const [formData, setFormData] = useState({
@@ -33,36 +33,43 @@ const AboutUs = () => {
   };
 
   const skills = [
+    { name: "SQL Server", icon: <SiMicrosoftsqlserver />, level: 95 },
+    { name: "PostgreSQL", icon: <SiPostgresql />, level: 90 },
+    { name: "Power BI", icon: <SiPowerbi />, level: 95 },
+    { name: "SSIS & ETL", icon: <HiDatabase />, level: 90 },
+    { name: "Data Analytics", icon: <HiChartBar />, level: 95 },
+    { name: "OpenAI GPT", icon: <SiOpenai />, level: 85 },
     { name: "React.js", icon: <FaReact />, level: 90 },
+    { name: "Node.js", icon: <FaNodeJs />, level: 85 },
+    { name: "Python", icon: <FaPython />, level: 80 },
+    { name: "Git/GitHub", icon: <FaGitAlt />, level: 90 },
+    { name: "Visual Studio", icon: <SiVisualstudio />, level: 90 },
     { name: "JavaScript", icon: <FaJs />, level: 85 },
-    { name: "HTML/CSS", icon: <FaHtml5 />, level: 95 },
-    { name: "Node.js", icon: <FaNodeJs />, level: 75 },
-    { name: "Python", icon: <FaPython />, level: 70 },
-    { name: "Firebase", icon: <SiFirebase />, level: 80 },
-    { name: "MongoDB", icon: <SiMongodb />, level: 75 },
-    { name: "Figma", icon: <FaFigma />, level: 85 },
-    { name: "Git", icon: <FaGitAlt />, level: 80 },
-    { name: "Arduino", icon: <SiArduino />, level: 70 },
   ];
 
   const timeline = [
     {
-      year: "2023",
-      title: "Web Developer",
-      company: "Freelance",
-      description: "Building modern web applications with React and Node.js"
+      year: "August 2022 – Present",
+      title: "Business Intelligence & Data Analyst",
+      company: "Orange Business (France Telecom)",
+      location: "Mumbai, India",
+      type: "work",
+      responsibilities: [
+        "Design and deploy Power BI dashboards and automated ETL pipelines using SQL, SSIS, and PostgreSQL",
+        "Develop AI-powered solutions with OpenAI GPT and RAG to automate data processes",
+        "Build secure web applications with React and Node.js for business automation"
+      ]
     },
     {
-      year: "2022",
-      title: "Graduate Project",
-      company: "College",
-      description: "Blockchain Voting System using Hyperledger Fabric"
-    },
-    {
-      year: "2021",
-      title: "IoT Projects",
-      company: "Academic",
-      description: "Autonomous Car Parking System and Smart Home Solutions"
+      year: "June 2018 – May 2022",
+      title: "Bachelor of Engineering — Electronics & Telecommunication",
+      company: "KC College of Engineering & Management Studies",
+      location: "Mumbai University",
+      type: "education",
+      responsibilities: [
+        "Graduated with GPA 8.83/10 - First Class with Distinction",
+        "Specialized in embedded systems and IoT-based projects"
+      ]
     }
   ];
 
@@ -96,26 +103,28 @@ const AboutUs = () => {
           >
             <span className="about-badge">About Me</span>
             <h1 className="about-title">
-              Hi there! I'm <span className="gradient-text">Vighnesh</span>
+              Hi there! I'm <span className="gradient-text">Vighnesh Raikar</span>
             </h1>
             <p className="about-description">
-              A passionate Full Stack Developer and UI/UX enthusiast who loves creating 
-              beautiful and functional web experiences. With expertise in modern web technologies 
-              and a keen eye for design, I bring ideas to life through code.
+              Data professional with 3+ years of experience designing and maintaining data pipelines, ETL workflows, 
+              and analytics solutions using SQL, SSIS, PostgreSQL, and Power BI. Strong background in data cleansing, 
+              transformation, and building production-ready data systems that support business-critical decision-making. 
+              Additionally experienced in integrating AI technologies (OpenAI GPT, RAG) and web applications (Node.js, React) 
+              to automate data access, enhance data quality, and deliver intelligent, scalable solutions.
             </p>
             <div className="about-info-cards">
               <div className="info-card">
                 <HiLocationMarker size={24} />
                 <div>
                   <h4>Location</h4>
-                  <p>India</p>
+                  <p>Mumbai, India</p>
                 </div>
               </div>
               <div className="info-card">
                 <HiMail size={24} />
                 <div>
                   <h4>Email</h4>
-                  <p>contact@vighnesh.dev</p>
+                  <p>raikar7178@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -173,8 +182,8 @@ const AboutUs = () => {
         transition={{ duration: 0.8 }}
       >
         <div className="section-header">
-          <h2 className="section-title">My Journey</h2>
-          <p className="section-subtitle">Career timeline and milestones</p>
+          <h2 className="section-title">Professional Journey</h2>
+          <p className="section-subtitle">Career path and educational background</p>
         </div>
 
         <div className="timeline">
@@ -182,19 +191,126 @@ const AboutUs = () => {
             <motion.div
               key={index}
               className="timeline-item"
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
+              transition={{ delay: index * 0.2, duration: 0.5 }}
             >
-              <div className="timeline-content">
-                <span className="timeline-year">{item.year}</span>
+              <div className="timeline-node">
+                <div className={`timeline-dot ${item.type}`}></div>
+                <div className="timeline-connector"></div>
+              </div>
+              <div className="timeline-card">
+                <div className="timeline-header">
+                  <span className="timeline-year">{item.year}</span>
+                  <span className={`timeline-type-badge ${item.type}`}>
+                    {item.type === "work" ? "Work" : "Education"}
+                  </span>
+                </div>
                 <h3 className="timeline-title">{item.title}</h3>
-                <h4 className="timeline-company">{item.company}</h4>
-                <p className="timeline-description">{item.description}</p>
+                <div className="timeline-meta">
+                  <span className="timeline-company">{item.company}</span>
+                  {item.location && <span className="timeline-location">{item.location}</span>}
+                </div>
+                <ul className="timeline-responsibilities">
+                  {item.responsibilities.map((resp, idx) => (
+                    <li key={idx}>{resp}</li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}
+        </div>
+      </motion.section>
+
+      {/* Certifications Section */}
+      <motion.section
+        className="skills-section"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="section-header">
+          <h2 className="section-title">Certifications & Awards</h2>
+          <p className="section-subtitle">Professional achievements and recognitions</p>
+        </div>
+
+        <div className="skills-grid">
+          <motion.div
+            className="skill-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ y: -5 }}
+          >
+            <div className="skill-icon" style={{ fontSize: '3rem' }}>🏆</div>
+            <h4 className="skill-name">Change Maker Award 2025</h4>
+            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
+              AI-powered analytics solution reducing bill rejections by 80%
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="skill-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            whileHover={{ y: -5 }}
+          >
+            <div className="skill-icon" style={{ fontSize: '3rem' }}>🏆</div>
+            <h4 className="skill-name">Change Maker Award 2024</h4>
+            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
+              Secure web application automating financial calculations
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="skill-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            whileHover={{ y: -5 }}
+          >
+            <div className="skill-icon" style={{ fontSize: '3rem' }}>⭐</div>
+            <h4 className="skill-name">Flare Award 2025</h4>
+            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
+              Employee of Semester - Azure OpenAI Chatbot with RAG
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="skill-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            whileHover={{ y: -5 }}
+          >
+            <div className="skill-icon" style={{ fontSize: '3rem' }}>☁️</div>
+            <h4 className="skill-name">Microsoft Azure AZ-900</h4>
+            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
+              Azure Fundamentals - 2026
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="skill-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            whileHover={{ y: -5 }}
+          >
+            <div className="skill-icon" style={{ fontSize: '3rem' }}>📱</div>
+            <h4 className="skill-name">Google Digital Marketing</h4>
+            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
+              Fundamentals of Digital Marketing - 2020
+            </p>
+          </motion.div>
         </div>
       </motion.section>
 

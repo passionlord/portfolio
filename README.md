@@ -1,4 +1,51 @@
-# Getting Started with Create React App
+# Vighnesh Raikar - Professional Portfolio
+
+## 🚀 Business Intelligence & Data Analyst Portfolio
+
+A modern, responsive portfolio website showcasing professional experience in data analytics, ETL pipelines, and AI-enabled solutions.
+
+### 👨‍💼 About
+
+Data professional with 3+ years of experience at Orange Business (France Telecom), specializing in:
+- **Business Intelligence**: Power BI dashboards and analytics solutions
+- **Data Engineering**: ETL pipelines using SQL, SSIS, PostgreSQL
+- **AI Solutions**: OpenAI GPT, RAG (Retrieval Augmented Generation)
+- **Web Development**: React, Node.js, and modern web technologies
+
+### 🏆 Achievements
+
+- **3x Award Winner** at Orange Business (Change Maker Awards 2024, 2025 & Flare Award 2025)
+- **80% reduction** in bill-rejection cases through AI-powered analytics
+- **90% reduction** in manual data processing time via automated ETL
+- **40% improvement** in stakeholder visibility with Power BI dashboards
+
+### 🛠️ Tech Stack
+
+**Data & Analytics:**
+- SQL Server, PostgreSQL
+- SSIS & Visual Studio
+- Power BI
+- Python
+
+**AI & ML:**
+- OpenAI GPT API
+- RAG (Retrieval Augmented Generation)
+- Azure OpenAI
+
+**Web Development:**
+- React.js
+- Node.js & Express.js
+- Supabase
+- Framer Motion
+
+### 📜 Certifications
+
+- Microsoft Azure Fundamentals (AZ-900) - 2026
+- Google Digital Marketing Fundamentals - 2020
+
+---
+
+## 🚀 Getting Started with the Portfolio
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

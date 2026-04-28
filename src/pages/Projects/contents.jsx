@@ -4,10 +4,14 @@ import "./ProjectCard/ProjectCard.css";
 
 const contents = [
   {
-    title: "Personal Website",
+    title: "AI-Powered Bill Analytics & Automation",
+    category: "data",
+    tags: ["SQL Server", "Python", "OpenAI GPT", "Power BI", "SSIS"],
+    award: "Change Maker Award 2025",
     projectInfo:
-      "This is a website which is basically my own personal portfolio made using several Technologies such as React.js , FireBase and Styled using CSS. The overall UI Considering the matter of fact of styling is done with the help of a FrontEnd javascript Framework called React.js , this website contains several sections such as project section , Blog Section , AboutMe and a Home page",
-    image: require("../../assets/website.PNG"),
+      "Developed an intelligent analytics system that automated the entire bill-generation and rejection-tracking process at Orange Business. The system uses OpenAI GPT API to auto-categorize thousands of billing records, replacing manual Excel processes. Integrated with Power BI for real-time dashboards, reducing bill-rejection cases by 80% and manual processing time by 90%. Built ETL pipelines in SSIS and SQL Server to ingest, transform, and load data from multiple source systems into a unified reporting layer.",
+    github: null,
+    image: require("../../assets/code.png"),
     btn: (
       <Link className="projectDiv__details-link" to="/readMore1">
         ReadMore
@@ -16,10 +20,14 @@ const contents = [
     ),
   },
   {
-    title: "Blockchain Voting System UI",
+    title: "Azure OpenAI Chatbot with RAG",
+    category: "ai",
+    tags: ["Azure OpenAI", "RAG", "Python", "React.js", "Node.js"],
+    award: "Flare Award 2025 – Employee of the Semester",
     projectInfo:
-      "This was my College Final Year Project , This website is a Blockchain Website which Functionality is to provide safe Voting Among people without getting afraid of attacking or data leak , typically this website is not Hackable , Because it uses Hyper Leger Fabric technology. The website was my Final Year Project with my Team in which my Role was to Design and Code the User Interface of it, I have used React.js as a FrontEnd language , and Designed it on the Lunacy Software which is a UI designing Software. For the Database part my team has used the MongoDB database and Node.js. My fellow team members Contributed By doing the main Functionality of the Website which is the Backend Section. ....Viewers can Just Check the UI code of the website in the Github link above.",
-    image: require("../../assets/voting.PNG"),
+      "Built an Azure OpenAI-powered conversational chatbot integrated with a dashboard hub containing 240+ Power BI dashboards. Implemented Retrieval Augmented Generation (RAG) to let users query dashboard metadata using natural language, reducing manual search time significantly. The chatbot indexes all dashboard descriptions and KPIs, then retrieves contextually relevant results before passing them to GPT for a natural response. Deployed on Azure and integrated with an internal React web portal for seamless user experience.",
+    github: null,
+    image: require("../../assets/code.png"),
     btn: (
       <Link className="projectDiv__details-link" to="/readMore2">
         ReadMore
@@ -28,10 +36,14 @@ const contents = [
     ),
   },
   {
-    title: "Automatic car Parking",
+    title: "Secure Financial Web Application",
+    category: "web",
+    tags: ["React.js", "Node.js", "PostgreSQL", "REST API", "JavaScript"],
+    award: "Change Maker Award 2024",
     projectInfo:
-      "This Project was My 2nd year Academic Engineering project , So this is a project which is basically called as Autonomous Parellel car Parking , Which Technically means the car itself will determine the avaliable parking space and park itself between two cars without crashing into anything the space is calculated with the help of 4 ultrasonic sensors which are positioned Accordingly in the front and the Rear side . There is also an infrared Sensor which is placed beside the wheel to measure the speed of the motor and gets recorded in the system , Arduino is used in this system and also a motor driver is used . ",
-    image: require("../../assets/car.jpg"),
+      "Designed and built a secure internal web application for financial data management at Orange Business. The application replaced manual spreadsheet-based calculations with an automated, role-based web platform. Features include user authentication, encrypted data storage, automated financial calculations, audit logging, and report generation. Built with React.js on the frontend and Node.js + PostgreSQL on the backend, following secure coding practices to protect sensitive financial data. Received the Change Maker Award for measurable business impact.",
+    github: null,
+    image: require("../../assets/projecthero.png"),
     btn: (
       <Link className="projectDiv__details-link" to="/readMore3">
         ReadMore
@@ -40,10 +52,14 @@ const contents = [
     ),
   },
   {
-    title: "Home Inverter",
+    title: "Blockchain Voting System",
+    category: "blockchain",
+    tags: ["React.js", "Hyperledger Fabric", "Node.js", "MongoDB"],
+    award: "Final Year Engineering Project",
     projectInfo:
-      "This is a website which is basically my own personal portfolio made using several Technologies such as React.js , FireBase and Styled using CSS. The overall UI Considering the matter of fact of styling is done with the help of a FrontEnd javascript Framework called React.js , this website contains several sections such as project section , Blog Section , AboutMe and a Home page",
-    image: require("../../assets/inverter.jpg"),
+      "Final year engineering project built with a team — a tamper-proof digital voting platform using Hyperledger Fabric blockchain. The system ensures each vote is immutable, transparent, and verifiable without revealing voter identity. My role was to design and develop the complete frontend UI using React.js, designed in Lunacy. The backend and smart contracts were handled by teammates. The platform prevents double voting, maintains a full audit trail on the blockchain, and is resistant to traditional attack vectors due to its decentralized nature.",
+    github: "https://github.com/vighnesh-raikar",
+    image: require("../../assets/voting.PNG"),
     btn: (
       <Link className="projectDiv__details-link" to="/readMore4">
         ReadMore
@@ -51,6 +67,54 @@ const contents = [
       </Link>
     ),
   },
+  // ── Old / Personal Projects ────────────────────────────────────────────
+  {
+    title: "Personal Portfolio Website",
+    category: "web",
+    tags: ["React.js", "HTML", "CSS", "JavaScript", "Netlify"],
+    award: null,
+    projectInfo:
+      "Built my personal portfolio website from scratch using React.js to showcase my skills, work experience, and projects. The website went through multiple redesigns as my skills evolved — starting from a basic HTML/CSS page to a fully animated React SPA with modern UI patterns. Features smooth page transitions, responsive layouts, a blog section powered by Supabase, and deployment via Netlify with CI/CD from GitHub.",
+    github: "https://github.com/vighnesh-raikar",
+    image: require("../../assets/website.PNG"),
+    btn: (
+      <Link className="projectDiv__details-link" to="/readMore5">
+        ReadMore
+        <HiOutlineArrowNarrowRight className="arrowIcon" fontSize="40" />
+      </Link>
+    ),
+  },
+  {
+    title: "Automatic Car Parking System",
+    category: "iot",
+    tags: ["Arduino", "Ultrasonic Sensors", "Servo Motors", "C++", "Hardware"],
+    award: null,
+    projectInfo:
+      "Built an automatic car parking prototype using Arduino microcontrollers, ultrasonic sensors, and servo motors. The wheeled robot autonomously detects obstacles, measures available parking space, executes a reverse-park maneuver, and confirms successful parking — all without manual input. The entire hardware was assembled on a custom chassis and programmed in C++. The project demonstrates real-world embedded systems and sensor fusion concepts.",
+    github: null,
+    image: require("../../assets/car.jpg"),
+    btn: (
+      <Link className="projectDiv__details-link" to="/readMore6">
+        ReadMore
+        <HiOutlineArrowNarrowRight className="arrowIcon" fontSize="40" />
+      </Link>
+    ),
+  },
+  {
+    title: "DC-to-AC Inverter Circuit",
+    category: "iot",
+    tags: ["Electronics", "Circuit Design", "MOSFET", "Transformer", "PWM"],
+    award: null,
+    projectInfo:
+      "Designed and built a DC-to-AC power inverter circuit as a college electronics project. The circuit converts 12V DC battery input to 230V AC output using MOSFET transistors, a step-up transformer, and a PWM oscillator stage. The project involved full schematic design, component selection, breadboard prototyping, and practical testing. Successfully powered a 25W incandescent bulb from a 12V battery with stable AC output, demonstrating core power electronics principles.",
+    github: null,
+    image: require("../../assets/inverter.jpg"),
+    btn: (
+      <Link className="projectDiv__details-link" to="/readMore7">
+        ReadMore
+        <HiOutlineArrowNarrowRight className="arrowIcon" fontSize="40" />
+      </Link>
+    ),
+  },
 ];
-
 export default contents;

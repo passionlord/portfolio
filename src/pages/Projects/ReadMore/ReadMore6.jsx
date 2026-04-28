@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { BsGithub } from "react-icons/bs";
 import { HiArrowLeft } from "react-icons/hi";
 
-const ReadMore4 = () => {
-  const project = contents[3];
+const ReadMore6 = () => {
+  const project = contents[5];
 
   return (
     <div className="readmore-page">
@@ -15,7 +15,7 @@ const ReadMore4 = () => {
           <Link to="/projects" className="readmore-back">
             <HiArrowLeft /> Back to Projects
           </Link>
-          <div className="readmore-category">Blockchain</div>
+          <div className="readmore-category">IoT & Electronics</div>
           <h1 className="readmore-title">{project.title}</h1>
           {project.award && (
             <div className="readmore-award">🏆 {project.award}</div>
@@ -36,9 +36,9 @@ const ReadMore4 = () => {
         <div className="readmore-divider" />
 
         <div className="readmore-section">
-          <p className="readmore-section-title">My Role</p>
+          <p className="readmore-section-title">How It Works</p>
           <p className="readmore-description">
-            UI Designer & Frontend Developer — Designed the complete user interface in Lunacy and built the frontend using React.js. Backend and Hyperledger Fabric smart contracts were developed by teammates.
+            Four ultrasonic sensors mounted at the corners continuously measure distances to surrounding obstacles. The Arduino reads sensor data, calculates the available gap, and triggers servo motor commands to steer and reverse-park the vehicle into position. A speed sensor tracks wheel rotation to prevent overshooting. The entire sequence runs in a tight embedded control loop written in C++.
           </p>
         </div>
 
@@ -56,20 +56,9 @@ const ReadMore4 = () => {
         <div className="readmore-divider" />
 
         <div className="readmore-actions">
-          {project.github ? (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="readmore-btn readmore-btn--primary"
-            >
-              <BsGithub size={18} /> View on GitHub
-            </a>
-          ) : (
-            <span className="readmore-btn readmore-btn--primary readmore-btn--disabled">
-              <BsGithub size={18} /> GitHub Unavailable
-            </span>
-          )}
+          <span className="readmore-btn readmore-btn--primary readmore-btn--disabled">
+            <BsGithub size={18} /> No GitHub (Hardware Project)
+          </span>
           <Link to="/projects" className="readmore-btn readmore-btn--outline">
             ← All Projects
           </Link>
@@ -79,4 +68,4 @@ const ReadMore4 = () => {
   );
 };
 
-export default ReadMore4;
+export default ReadMore6;

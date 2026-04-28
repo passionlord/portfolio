@@ -1,62 +1,54 @@
 import React, { useState } from "react";
 import "./Projects.css";
 import { motion } from "framer-motion";
-import { HiCode, HiChip, HiLightningBolt } from "react-icons/hi";
+import { HiCode, HiDatabase, HiLightningBolt, HiChip } from "react-icons/hi";
 import { BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import contents from "./contents";
+
+const categoryIcons = {
+  data: <HiDatabase size={22} />,
+  ai: <HiLightningBolt size={22} />,
+  web: <HiCode size={22} />,
+  blockchain: <HiLightningBolt size={22} />,
+  iot: <HiChip size={22} />,
+};
+
+const categoryLabels = {
+  all: "All Projects",
+  data: "Data & ETL",
+  ai: "AI Solutions",
+  web: "Web Development",
+  blockchain: "Blockchain",
+  iot: "IoT & Electronics",
+};
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const categories = {
-    all: "All Projects",
-    web: "Web Development",
-    iot: "IoT & Hardware",
-    blockchain: "Blockchain",
-  };
-
-  const projectCategories = {
-    0: "web",
-    1: "blockchain", 
-    2: "iot",
-    3: "iot",
-  };
-
-  const filteredProjects = contents.filter((project, index) => {
-    const matchesFilter = filter === "all" || projectCategories[index] === filter;
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          project.projectInfo.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredProjects = contents.filter((project) => {
+    const matchesFilter = filter === "all" || project.category === filter;
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.projectInfo.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesFilter && matchesSearch;
   });
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
   return (
     <div className="modern-projects">
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="projects-hero"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -73,7 +65,7 @@ const Projects = () => {
               My <span className="gradient-text">Projects</span>
             </h1>
             <p className="projects-subtitle">
-              Every project is an opportunity to learn, to figure out problems and challenges, to invent and reinvent.
+              Real-world solutions built at Orange Business — from AI-powered analytics to automated ETL pipelines and secure web applications.
             </p>
           </motion.div>
 
@@ -100,7 +92,7 @@ const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            {Object.entries(categories).map(([key, value]) => (
+            {Object.entries(categoryLabels).map(([key, value]) => (
               <button
                 key={key}
                 className={`filter-btn ${filter === key ? "active" : ""}`}
@@ -114,7 +106,7 @@ const Projects = () => {
       </motion.section>
 
       {/* Projects Grid */}
-      <motion.section 
+      <motion.section
         className="projects-grid-section"
         variants={containerVariants}
         initial="hidden"
@@ -127,47 +119,63 @@ const Projects = () => {
                 key={index}
                 className="project-card-modern"
                 variants={itemVariants}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -8 }}
               >
                 <div className="project-card-image">
                   <img src={project.image} alt={project.title} />
                   <div className="project-card-overlay">
                     <div className="project-icons">
-                      {projectCategories[contents.indexOf(project)] === "web" && <HiCode size={30} />}
-                      {projectCategories[contents.indexOf(project)] === "blockchain" && <HiLightningBolt size={30} />}
-                      {projectCategories[contents.indexOf(project)] === "iot" && <HiChip size={30} />}
+                      {categoryIcons[project.category]}
                     </div>
                   </div>
+                  {project.award && (
+                    <div className="project-award-badge">🏆 {project.award}</div>
+                  )}
                 </div>
                 <div className="project-card-content">
                   <div className="project-category-badge">
-                    {categories[projectCategories[contents.indexOf(project)]]}
+                    {categoryLabels[project.category]}
                   </div>
                   <h3 className="project-card-title">{project.title}</h3>
                   <p className="project-card-description">
-                    {project.projectInfo.substring(0, 150)}...
+                    {project.projectInfo.substring(0, 140)}...
                   </p>
+                  <div className="project-tags">
+                    {project.tags.slice(0, 3).map((tag, i) => (
+                      <span key={i} className="project-tag">{tag}</span>
+                    ))}
+                    {project.tags.length > 3 && (
+                      <span className="project-tag">+{project.tags.length - 3}</span>
+                    )}
+                  </div>
                   <div className="project-card-footer">
-                    <Link 
-                      to={`/project/${contents.indexOf(project) + 1}`}
+                    <Link
+                      to={`/readMore${contents.indexOf(project) + 1}`}
                       className="view-details-btn"
                     >
                       View Details
                     </Link>
-                    <button className="github-btn">
-                      <BsGithub size={20} />
-                    </button>
+                    {project.github ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="github-btn"
+                      >
+                        <BsGithub size={20} />
+                      </a>
+                    ) : (
+                      <button className="github-btn github-btn--disabled" disabled title="Private / Internal Project">
+                        <BsGithub size={20} />
+                      </button>
+                    )}
                   </div>
                 </div>
               </motion.div>
             ))
           ) : (
-            <motion.div
-              className="no-results"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <p>No projects found matching your criteria.</p>
+            <motion.div className="no-results" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <p>No projects found matching your search.</p>
             </motion.div>
           )}
         </div>
@@ -183,16 +191,20 @@ const Projects = () => {
       >
         <div className="stats-grid">
           <div className="stat-item">
-            <h2 className="stat-number">{contents.length}+</h2>
-            <p className="stat-label">Projects Completed</p>
+            <h2 className="stat-number">3+</h2>
+            <p className="stat-label">Awards Won</p>
           </div>
           <div className="stat-item">
-            <h2 className="stat-number">10+</h2>
-            <p className="stat-label">Technologies Used</p>
+            <h2 className="stat-number">80%</h2>
+            <p className="stat-label">Error Reduction</p>
           </div>
           <div className="stat-item">
-            <h2 className="stat-number">100%</h2>
-            <p className="stat-label">Client Satisfaction</p>
+            <h2 className="stat-number">90%</h2>
+            <p className="stat-label">Time Saved</p>
+          </div>
+          <div className="stat-item">
+            <h2 className="stat-number">240+</h2>
+            <p className="stat-label">Dashboards Served</p>
           </div>
         </div>
       </motion.section>

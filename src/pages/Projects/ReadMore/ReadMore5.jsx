@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { BsGithub } from "react-icons/bs";
 import { HiArrowLeft } from "react-icons/hi";
 
-const ReadMore4 = () => {
-  const project = contents[3];
+const ReadMore5 = () => {
+  const project = contents[4];
 
   return (
     <div className="readmore-page">
@@ -15,7 +15,7 @@ const ReadMore4 = () => {
           <Link to="/projects" className="readmore-back">
             <HiArrowLeft /> Back to Projects
           </Link>
-          <div className="readmore-category">Blockchain</div>
+          <div className="readmore-category">Web Development</div>
           <h1 className="readmore-title">{project.title}</h1>
           {project.award && (
             <div className="readmore-award">🏆 {project.award}</div>
@@ -38,7 +38,7 @@ const ReadMore4 = () => {
         <div className="readmore-section">
           <p className="readmore-section-title">My Role</p>
           <p className="readmore-description">
-            UI Designer & Frontend Developer — Designed the complete user interface in Lunacy and built the frontend using React.js. Backend and Hyperledger Fabric smart contracts were developed by teammates.
+            Solo developer — designed and built every part of the website from concept to deployment. Handled UI/UX design, React component architecture, routing, state management, blog integration, and CI/CD deployment on Netlify.
           </p>
         </div>
 
@@ -79,4 +79,4 @@ const ReadMore4 = () => {
   );
 };
 
-export default ReadMore4;
+export default ReadMore5;

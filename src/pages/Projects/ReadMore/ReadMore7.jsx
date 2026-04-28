@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { BsGithub } from "react-icons/bs";
 import { HiArrowLeft } from "react-icons/hi";
 
-const ReadMore4 = () => {
-  const project = contents[3];
+const ReadMore7 = () => {
+  const project = contents[6];
 
   return (
     <div className="readmore-page">
@@ -15,7 +15,7 @@ const ReadMore4 = () => {
           <Link to="/projects" className="readmore-back">
             <HiArrowLeft /> Back to Projects
           </Link>
-          <div className="readmore-category">Blockchain</div>
+          <div className="readmore-category">IoT & Electronics</div>
           <h1 className="readmore-title">{project.title}</h1>
           {project.award && (
             <div className="readmore-award">🏆 {project.award}</div>
@@ -36,9 +36,9 @@ const ReadMore4 = () => {
         <div className="readmore-divider" />
 
         <div className="readmore-section">
-          <p className="readmore-section-title">My Role</p>
+          <p className="readmore-section-title">Circuit Design</p>
           <p className="readmore-description">
-            UI Designer & Frontend Developer — Designed the complete user interface in Lunacy and built the frontend using React.js. Backend and Hyperledger Fabric smart contracts were developed by teammates.
+            The circuit uses two MOSFET transistors in a push-pull configuration driven by a 555-timer PWM oscillator at 50 Hz. The high-frequency switching drives the primary coil of a step-up transformer, producing 230V AC on the secondary. A capacitor filter smooths the output waveform. The design was first simulated in Proteus before being prototyped on a breadboard and tested under load.
           </p>
         </div>
 
@@ -56,20 +56,9 @@ const ReadMore4 = () => {
         <div className="readmore-divider" />
 
         <div className="readmore-actions">
-          {project.github ? (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="readmore-btn readmore-btn--primary"
-            >
-              <BsGithub size={18} /> View on GitHub
-            </a>
-          ) : (
-            <span className="readmore-btn readmore-btn--primary readmore-btn--disabled">
-              <BsGithub size={18} /> GitHub Unavailable
-            </span>
-          )}
+          <span className="readmore-btn readmore-btn--primary readmore-btn--disabled">
+            <BsGithub size={18} /> No GitHub (Hardware Project)
+          </span>
           <Link to="/projects" className="readmore-btn readmore-btn--outline">
             ← All Projects
           </Link>
@@ -79,4 +68,4 @@ const ReadMore4 = () => {
   );
 };
 
-export default ReadMore4;
+export default ReadMore7;
