@@ -1,87 +1,128 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
-import { GiHamburgerMenu, GiCrossedBones } from "react-icons/gi";
+import { Link, useLocation } from "react-router-dom";
+import { HiMenu, HiX } from "react-icons/hi";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = React.useState(false);
-  const closeWhenClick = () => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     setToggleMenu(false);
-  };
+  }, [location]);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/AboutUs" },
+    { name: "Projects", path: "/projects" },
+    { name: "Blogs", path: "/Blogs" },
+  ];
 
   return (
-    <nav className="navbar">
-      <div className="navbar__brand">
-        <h1>Vighnesh</h1>
-      </div>
+    <>
+      <motion.nav 
+        className={`modern-navbar ${scrolled ? 'scrolled' : ''}`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="navbar-container">
+          <Link to="/" className="navbar-logo">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="logo-text">Vighnesh</span>
+              <span className="logo-dot">.</span>
+            </motion.div>
+          </Link>
 
-      <ul className="navbar__links">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/AboutUs">AboutUs</Link>
-        </li>
-        <li>
-          <Link to="/Blogs">Blogs</Link>
-        </li>
-        <li>
-          <Link to="/projects">Projects</Link>
-        </li>
-        <li>
-          <Link to="/">Contact</Link>
-        </li>
-      </ul>
+          <ul className="navbar-menu">
+            {navLinks.map((link, index) => (
+              <motion.li
+                key={link.name}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Link 
+                  to={link.path} 
+                  className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                >
+                  {link.name}
+                </Link>
+              </motion.li>
+            ))}
+          </ul>
 
-      <div className="navbar__smallscreen">
-        <GiHamburgerMenu
-          color="#000"
-          fontSize={27}
-          className="overlay__open "
-          onClick={() => {
-            setToggleMenu(true);
-          }}
-        />
+          <Link to="/login" className="navbar-cta">
+            <motion.button
+              className="cta-button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get Started
+            </motion.button>
+          </Link>
 
-        {toggleMenu && (
-          <div className="navbar__smallscreen_overlay w3-animate-top">
-            <GiCrossedBones
-              fontSize={27}
-              className="overlay__close"
-              onClick={closeWhenClick}
-            />
-
-            <ul className="navbar__smallscreen_links">
-              <li>
-                <Link to="/" onClick={closeWhenClick}>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/AboutUs" onClick={closeWhenClick}>
-                  AboutUs
-                </Link>
-              </li>
-              <li>
-                <Link to="/Blogs" onClick={closeWhenClick}>
-                  Blogs
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects" onClick={closeWhenClick}>
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link to="/" onClick={closeWhenClick}>
-                  Contact
-                </Link>
-              </li>
-            </ul>
+          <div className="mobile-toggle" onClick={() => setToggleMenu(!toggleMenu)}>
+            {toggleMenu ? <HiX size={28} /> : <HiMenu size={28} />}
           </div>
+        </div>
+      </motion.nav>
+
+      <AnimatePresence>
+        {toggleMenu && (
+          <motion.div
+            className="mobile-menu"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className="mobile-menu-content">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link 
+                    to={link.path} 
+                    className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                    onClick={() => setToggleMenu(false)}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <Link to="/login" onClick={() => setToggleMenu(false)}>
+                  <button className="mobile-cta-button">Get Started</button>
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
         )}
-      </div>
-    </nav>
+      </AnimatePresence>
+    </>
   );
 };
 

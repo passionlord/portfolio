@@ -1,70 +1,91 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Blogs.css";
-import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "./firebase-config";
+import { supabase } from "./supabase-config";
 import BlogsData from "./BlogsData";
+import { motion } from "framer-motion";
+import { HiPencilAlt, HiLogout, HiLogin, HiPlus } from "react-icons/hi";
 
 const Blogs = ({ isAuth, setIsAuth }) => {
   let navigate = useNavigate();
 
-  const signUserOut = () => {
-    signOut(auth).then(() => {
-      localStorage.clear();
-      setIsAuth(false);
-      navigate("/login");
-    });
+  const signUserOut = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        console.error("Error signing out:", error);
+      } else {
+        localStorage.clear();
+        setIsAuth(false);
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
-    <div className="blog__section">
-      <div className="blog__section-title">
-        <h1 className="title-h1">Blogs</h1>
-        <p className="bio-p">
-          A Blog website Designed & coded with react by vighnesh
-        </p>
-
-        <div className="blog__section-buttons">
-          <button className="viewworkButton">View Work</button>
-
-          <div
-            className="btn-group"
-            role="group"
-            aria-label="Button group with nested dropdown"
+    <div className="modern-blogs">
+      {/* Hero Section */}
+      <motion.section 
+        className="blogs-hero"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="blogs-hero-content">
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <div className="btn-group" role="group">
-              <button
-                id="btnGroupDrop1"
-                type="button"
-                className="btn dropdownButton dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Post Your Blog
-              </button>
-              <ul className="dropdown-menu " aria-labelledby="btnGroupDrop1">
-                <li>
-                  {!isAuth ? (
-                    <Link className="dropdown-item" to="/login">
-                      Login
-                    </Link>
-                  ) : (
-                    <>
-                      <Link className="dropdown-item" to="/createpost">
-                        Create Post
-                      </Link>
-                      <button className="logoutButton" onClick={signUserOut}>
-                        Sign Out
-                      </button>
-                    </>
-                  )}
-                </li>
-              </ul>
-            </div>
-          </div>
+            <span className="hero-badge">
+              <HiPencilAlt size={18} /> Blog
+            </span>
+            <h1 className="blogs-title">
+              Latest <span className="gradient-text">Insights</span>
+            </h1>
+            <p className="blogs-subtitle">
+              Sharing thoughts, ideas, and experiences about web development, design, and technology.
+            </p>
+          </motion.div>
+
+          {/* Action Buttons */}
+          <motion.div
+            className="blogs-actions"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            {!isAuth ? (
+              <Link to="/login" className="blog-action-btn primary">
+                <HiLogin size={20} />
+                Login to Post
+              </Link>
+            ) : (
+              <>
+                <Link to="/createpost" className="blog-action-btn primary">
+                  <HiPlus size={20} />
+                  Create Post
+                </Link>
+                <button 
+                  className="blog-action-btn secondary" 
+                  onClick={signUserOut}
+                >
+                  <HiLogout size={20} />
+                  Sign Out
+                </button>
+              </>
+            )}
+          </motion.div>
         </div>
-      </div>
-      <BlogsData isAuth={isAuth} />
+      </motion.section>
+
+      {/* Blog Posts Grid */}
+      <section className="blogs-content">
+        <BlogsData isAuth={isAuth} />
+      </section>
     </div>
   );
 };

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #fafbfc;
 }
 
 code {
@@ -19,16 +20,16 @@ code {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f3f5;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
 }

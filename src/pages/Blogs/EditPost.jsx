@@ -1,35 +1,62 @@
 import React, { useState, useEffect } from "react";
 import "./CreatePost.css";
 import { supabase } from "./supabase-config";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { HiPencilAlt, HiTag, HiDocumentText } from "react-icons/hi";
 
-const CreatePost = ({ isAuth }) => {
+const EditPost = ({ isAuth }) => {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
   const [hashtag, setHashtag] = useState("");
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [updating, setUpdating] = useState(false);
 
+  const { id } = useParams();
   let navigate = useNavigate();
 
   useEffect(() => {
-    const getUser = async () => {
+    const initPage = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       setUser(user);
       
       if (!user) {
         navigate("/login");
+        return;
       }
+
+      const { data: post, error } = await supabase
+        .from('posts')
+        .select('*')
+        .eq('id', id)
+        .single();
+
+      if (error) {
+        console.error("Error fetching post:", error);
+        alert("Error loading post");
+        navigate("/blogs");
+        return;
+      }
+
+      if (post.author_id !== user.id) {
+        alert("You can only edit your own posts");
+        navigate("/blogs");
+        return;
+      }
+
+      setTitle(post.title);
+      setPostText(post.post_text);
+      setHashtag(post.hashtag || "");
+      setLoading(false);
     };
     
-    getUser();
-  }, [navigate]);
+    initPage();
+  }, [id, navigate]);
 
-  const createPost = async () => {
+  const updatePost = async () => {
     if (!user) {
-      alert("You must be logged in to create a post");
+      alert("You must be logged in to edit a post");
       navigate("/login");
       return;
     }
@@ -39,35 +66,44 @@ const CreatePost = ({ isAuth }) => {
       return;
     }
 
-    setLoading(true);
+    setUpdating(true);
 
     try {
       const { error } = await supabase
         .from('posts')
-        .insert([
-          {
-            title: title,
-            post_text: postText,
-            hashtag: hashtag,
-            author_id: user.id,
-            author_name: user.user_metadata?.full_name || user.email
-          }
-        ]);
+        .update({
+          title: title,
+          post_text: postText,
+          hashtag: hashtag
+        })
+        .eq('id', id)
+        .eq('author_id', user.id);
 
       if (error) {
-        console.error("Error creating post:", error);
-        alert("Error creating post: " + error.message);
+        console.error("Error updating post:", error);
+        alert("Error updating post: " + error.message);
       } else {
-        alert("Post created successfully!");
+        alert("Post updated successfully!");
         navigate("/blogs");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Error creating post");
+      alert("Error updating post");
     } finally {
-      setLoading(false);
+      setUpdating(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="modern-create-post">
+        <div className="blogs-loading">
+          <div className="loading-spinner"></div>
+          <p>Loading post...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="modern-create-post">
@@ -85,13 +121,13 @@ const CreatePost = ({ isAuth }) => {
           transition={{ delay: 0.2, duration: 0.6 }}
         >
           <span className="hero-badge">
-            <HiPencilAlt size={18} /> Create Post
+            <HiPencilAlt size={18} /> Edit Post
           </span>
           <h1 className="create-post-title">
-            Share Your <span className="gradient-text">Story</span>
+            Update Your <span className="gradient-text">Story</span>
           </h1>
           <p className="create-post-subtitle">
-            Write and publish your thoughts to inspire others
+            Make changes to your post and publish the updates
           </p>
         </motion.div>
       </motion.section>
@@ -158,26 +194,26 @@ const CreatePost = ({ isAuth }) => {
                 onClick={() => navigate("/blogs")}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                disabled={loading}
+                disabled={updating}
               >
                 Cancel
               </motion.button>
               <motion.button
                 className="submit-btn"
-                onClick={createPost}
+                onClick={updatePost}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                disabled={loading || !title || !postText}
+                disabled={updating || !title || !postText}
               >
-                {loading ? (
+                {updating ? (
                   <>
                     <div className="spinner"></div>
-                    Publishing...
+                    Updating...
                   </>
                 ) : (
                   <>
                     <HiPencilAlt size={20} />
-                    Publish Post
+                    Update Post
                   </>
                 )}
               </motion.button>
@@ -203,4 +239,4 @@ const CreatePost = ({ isAuth }) => {
   );
 };
 
-export default CreatePost;
+export default EditPost;

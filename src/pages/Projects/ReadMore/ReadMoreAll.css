@@ -49,13 +49,23 @@
 }
 
 .personalWrapper > .githubLink {
-  padding: 8px 27px;
+  padding: 10px 35px;
   border: none;
-  background-color: #846df6;
+  background: linear-gradient(135deg, #ec4899, #a855f7);
   color: #fff;
   font-family: "Nunito", sans-serif;
   text-align: center;
   margin-bottom: 3rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.personalWrapper > .githubLink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(168, 85, 247, 0.5);
 }
 
 .personalWrapper > .githubLink > .githubIcon {
@@ -64,12 +74,15 @@
 }
 
 .personalWrapper > .personalWrapper__para {
-  background-color: #e8e8e8;
+  background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
   padding: 40px 35px;
   font-family: "Nunito", sans-serif;
   font-size: 1.25rem;
   line-height: 2;
   margin-bottom: 8rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(139, 92, 246, 0.15), 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(168, 85, 247, 0.1);
 }
 
 .personalWrapper > h1 {
@@ -85,11 +98,18 @@
 }
 
 .personalWrapper .personalWrapper__tags .tags {
-  padding: 8px 35px;
+  padding: 10px 35px;
   color: #fff;
-  /* margin-right: 20px; */
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
+  border-radius: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+}
+
+.tags:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .tags:nth-of-type(1) {
