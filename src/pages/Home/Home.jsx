@@ -6,9 +6,12 @@ import { BsLinkedin, BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 import { ImPinterest2 } from "react-icons/im";
 import { HiArrowRight, HiMail } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { useVisitorCount } from "../../hooks/useVisitorCount";
+import Guestbook from "../../components/Guestbook/Guestbook";
 
 const Home = () => {
   const cursorRef = useRef(null);
+  const visitorCount = useVisitorCount();
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -79,6 +82,18 @@ const Home = () => {
             >
               Business Intelligence & Data Analyst
             </motion.p>
+
+            {visitorCount !== null && (
+              <motion.div
+                className="visitor-counter"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.5 }}
+              >
+                <span className="visitor-dot" />
+                <span>{visitorCount.toLocaleString()} people have visited this site</span>
+              </motion.div>
+            )}
             
             <motion.p 
               className="hero-description"
@@ -236,6 +251,8 @@ const Home = () => {
           </div>
         </div>
       </motion.section>
+
+      <Guestbook />
     </>
   );
 };
