@@ -449,3 +449,39 @@
     max-height: 700px;
   }
 }
+
+/* ====== DARK MODE ====== */
+[data-theme="dark"] .project-detail-page { background: #0f172a; }
+[data-theme="dark"] .project-detail-hero {
+  background: linear-gradient(145deg, #1e293b 0%, #1a1230 100%);
+}
+[data-theme="dark"] .project-detail-title { color: #f1f5f9; }
+[data-theme="dark"] .project-detail-subtitle { color: #94a3b8; }
+[data-theme="dark"] .project-detail-section { background: #0f172a; }
+[data-theme="dark"] .detail-card {
+  background: #1e293b;
+  border-color: rgba(99,102,241,0.2);
+}
+[data-theme="dark"] .detail-card h3 { color: #f1f5f9; }
+[data-theme="dark"] .detail-card p { color: #94a3b8; }
+/* New ProjectDetail page classes */
+[data-theme="dark"] .project-content-section { background: #0f172a; }
+[data-theme="dark"] .project-image-section { background: #0f172a; }
+[data-theme="dark"] .project-main-content h2 { color: #f1f5f9; }
+[data-theme="dark"] .project-description { color: #94a3b8; }
+[data-theme="dark"] .features-list li { color: #94a3b8; }
+[data-theme="dark"] .sidebar-card {
+  background: #1e293b;
+  border-color: rgba(99,102,241,0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+[data-theme="dark"] .sidebar-card h3 { color: #f1f5f9; }
+[data-theme="dark"] .tech-tag {
+  background: rgba(99,102,241,0.12);
+  color: #a5b4fc;
+  border-color: rgba(99,102,241,0.25);
+}
+[data-theme="dark"] .project-info-item strong { color: #cbd5e1; }
+[data-theme="dark"] .project-info-item span { color: #94a3b8; }
+[data-theme="dark"] .project-detail-error { background: #0f172a; }
+[data-theme="dark"] .project-detail-error h2 { color: #f1f5f9; }

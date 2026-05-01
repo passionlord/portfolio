@@ -330,3 +330,22 @@
     font-size: 1.2rem;
   }
 }
+
+/* ====== DARK MODE ====== */
+[data-theme="dark"] .modern-blog-post { background: #0f172a; }
+[data-theme="dark"] .blog-post-hero { background: linear-gradient(145deg, #1e293b, #1a1230); }
+[data-theme="dark"] .back-button { color: rgba(255,255,255,0.7); }
+[data-theme="dark"] .back-button:hover { color: #fff; }
+[data-theme="dark"] .post-title { color: #f1f5f9; }
+[data-theme="dark"] .post-content-section { background: #0f172a; }
+[data-theme="dark"] .post-content { background: #1e293b; border-color: rgba(99,102,241,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+[data-theme="dark"] .content-body { color: #cbd5e1; }
+[data-theme="dark"] .content-body p { color: #94a3b8; }
+[data-theme="dark"] .post-navigation { background: #0f172a; border-top-color: rgba(99,102,241,0.15); }
+[data-theme="dark"] .nav-button { background: #1e293b; color: #a5b4fc; border-color: rgba(99,102,241,0.3); }
+[data-theme="dark"] .blog-post-loading { background: #0f172a; }
+[data-theme="dark"] .blog-post-loading p { color: #94a3b8; }
+[data-theme="dark"] .blog-post-error { background: #0f172a; }
+[data-theme="dark"] .blog-post-error h2 { color: #f1f5f9; }
+[data-theme="dark"] .author-name { color: #e2e8f0; }
+[data-theme="dark"] .post-date { color: #64748b; }

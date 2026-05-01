@@ -1,4 +1,4 @@
-/* Modern About Us Page Styles */
+﻿/* Modern About Us Page Styles */
 
 .modern-about {
   min-height: 100vh;
@@ -663,4 +663,300 @@
   .section-title {
     font-size: 3rem;
   }
+}
+
+/* ====== DARK MODE ====== */
+[data-theme="dark"] .modern-about {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+[data-theme="dark"] .about-hero {
+  background: linear-gradient(145deg, #1e293b 0%, #1a1230 100%);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+[data-theme="dark"] .about-name { color: #f1f5f9; }
+[data-theme="dark"] .about-title { color: #94a3b8; }
+[data-theme="dark"] .about-description { color: #94a3b8; }
+[data-theme="dark"] .about-section { background: #0f172a; }
+[data-theme="dark"] .about-section-alt { background: #1e293b; }
+[data-theme="dark"] .about-section h2,
+[data-theme="dark"] .section-title { color: #f1f5f9; }
+[data-theme="dark"] .skill-card,
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .timeline-card,
+[data-theme="dark"] .experience-card {
+  background: #1e293b;
+  border-color: rgba(99,102,241,0.2);
+  color: #cbd5e1;
+}
+[data-theme="dark"] .skill-card h3,
+[data-theme="dark"] .about-card h3,
+[data-theme="dark"] .timeline-card h3,
+[data-theme="dark"] .experience-card h3,
+[data-theme="dark"] .stat-card h3 { color: #f1f5f9; }
+[data-theme="dark"] .skill-card p,
+[data-theme="dark"] .about-card p,
+[data-theme="dark"] .timeline-card p,
+[data-theme="dark"] .experience-card p { color: #94a3b8; }
+[data-theme="dark"] .about-text-content h1 { color: #f1f5f9; }
+[data-theme="dark"] .about-text-content p { color: #94a3b8; }
+
+/* ===== SKILL GROUPS / CHIPS ===== */
+.skill-groups {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skill-group {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  border: 1.5px solid rgba(99,102,241,0.1);
+  box-shadow: 0 4px 20px rgba(99,102,241,0.07), 0 1px 4px rgba(0,0,0,0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.skill-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(99,102,241,0.12), 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.skill-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.skill-group-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skill-group-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1e293b;
+  margin: 0;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--group-bg, rgba(99,102,241,0.07));
+  border: 1.5px solid var(--group-border, rgba(99,102,241,0.18));
+  cursor: default;
+  transition: all 0.25s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.skill-chip:hover {
+  background: var(--group-bg, rgba(99,102,241,0.12));
+  border-color: var(--group-color, #6366f1);
+  box-shadow: 0 4px 14px rgba(99,102,241,0.15);
+}
+
+.skill-chip-icon {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.skill-chip-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ===== CERTIFICATIONS ===== */
+.certs-section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.certs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 18px;
+  border: 1.5px solid rgba(99,102,241,0.1);
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(99,102,241,0.07);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cert-card:hover {
+  box-shadow: 0 12px 40px rgba(99,102,241,0.13);
+  border-color: rgba(99,102,241,0.25);
+}
+
+.cert-card--award {
+  border-left: 4px solid #f59e0b;
+}
+
+.cert-card--cert {
+  border-left: 4px solid #6366f1;
+}
+
+.cert-emoji {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(99,102,241,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cert-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.2rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.cert-org {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6366f1;
+}
+
+.cert-desc {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0.3rem 0 0;
+  line-height: 1.5;
+}
+
+.cert-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.cert-badge--award {
+  background: rgba(245,158,11,0.12);
+  color: #d97706;
+  border: 1px solid rgba(245,158,11,0.25);
+}
+
+.cert-badge--cert {
+  background: rgba(99,102,241,0.1);
+  color: #6366f1;
+  border: 1px solid rgba(99,102,241,0.2);
+}
+
+/* ===== DARK MODE — ALL ABOUT PAGE ===== */
+[data-theme="dark"] .modern-about {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+[data-theme="dark"] .about-hero {
+  background: linear-gradient(145deg, #1e293b 0%, #151a2e 100%);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+[data-theme="dark"] .about-title,
+[data-theme="dark"] .section-title { color: #f1f5f9; }
+[data-theme="dark"] .about-description,
+[data-theme="dark"] .section-subtitle { color: #94a3b8; }
+[data-theme="dark"] .info-card {
+  background: linear-gradient(135deg, #1e293b 0%, #1a1230 100%);
+  border-color: rgba(236,72,153,0.2);
+}
+[data-theme="dark"] .info-card p { color: #f1f5f9; }
+[data-theme="dark"] .info-card h4 { color: #94a3b8; }
+/* Skills */
+[data-theme="dark"] .skills-section { background: transparent; }
+[data-theme="dark"] .skill-group {
+  background: #1e293b;
+  border-color: rgba(99,102,241,0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+[data-theme="dark"] .skill-group-title { color: #e2e8f0; }
+[data-theme="dark"] .skill-chip { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .skill-chip-name { color: #e2e8f0; }
+/* Timeline */
+[data-theme="dark"] .timeline-section { background: #0f172a; }
+[data-theme="dark"] .timeline-card {
+  background: #1e293b;
+  border-color: rgba(139,92,246,0.2);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+[data-theme="dark"] .timeline-card:hover {
+  border-color: rgba(139,92,246,0.4);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+[data-theme="dark"] .timeline-title { color: #f1f5f9; }
+[data-theme="dark"] .timeline-responsibilities li { color: #94a3b8; }
+[data-theme="dark"] .timeline-location { color: #64748b; }
+/* Certs */
+[data-theme="dark"] .cert-card {
+  background: #1e293b;
+  border-color: rgba(99,102,241,0.18);
+  border-left-color: inherit;
+}
+[data-theme="dark"] .cert-card--award { border-left-color: #f59e0b; }
+[data-theme="dark"] .cert-card--cert { border-left-color: #6366f1; }
+[data-theme="dark"] .cert-emoji { background: rgba(99,102,241,0.12); }
+[data-theme="dark"] .cert-title { color: #f1f5f9; }
+[data-theme="dark"] .cert-desc { color: #94a3b8; }
+/* Resume */
+[data-theme="dark"] .resume-card { box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+/* Contact */
+[data-theme="dark"] .contact-form-container {
+  background: linear-gradient(145deg, #1e293b 0%, #151a2e 100%);
+  border-color: rgba(99,102,241,0.25);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+[data-theme="dark"] .form-group label { color: #cbd5e1; }
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+  background: #0f172a;
+  border-color: rgba(99,102,241,0.25);
+  color: #f1f5f9;
+}
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder { color: #475569; }
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus {
+  background: #1e293b;
+  border-color: #6366f1;
 }

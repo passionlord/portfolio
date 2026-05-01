@@ -159,19 +159,19 @@ const Login = ({ setIsAuth }) => {
         </form>
 
         {/* Toggle Sign Up/Sign In */}
-        <p className="toggle-auth">
+        <p className="auth-toggle">
           {isSignUp ? "Already have an account? " : "Don't have an account? "}
-          <span 
+          <button 
+            type="button"
             onClick={() => {
               setIsSignUp(!isSignUp);
               setEmail("");
               setPassword("");
               setFullName("");
             }}
-            className="toggle-link"
           >
             {isSignUp ? "Sign In" : "Create Account"}
-          </span>
+          </button>
         </p>
       </div>
     </div>

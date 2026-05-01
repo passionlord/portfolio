@@ -1,4 +1,4 @@
-/* Modern Blogs Page Styles */
+﻿/* Modern Blogs Page Styles */
 
 .modern-blogs {
   min-height: 100vh;
@@ -171,4 +171,26 @@
   .blogs-subtitle {
     font-size: 1.3rem;
   }
+}
+
+/* ====== DARK MODE ====== */
+[data-theme="dark"] .modern-blogs {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+[data-theme="dark"] .blogs-hero {
+  background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.12));
+}
+[data-theme="dark"] .blogs-title { color: #f1f5f9; }
+[data-theme="dark"] .blogs-subtitle { color: #94a3b8; }
+[data-theme="dark"] .blogs-content { background: transparent; }
+[data-theme="dark"] .blogs-section-title { color: #f1f5f9; }
+[data-theme="dark"] .blog-action-btn.secondary {
+  background: rgba(30,41,59,0.9);
+  color: #e2e8f0;
+  border-color: rgba(99,102,241,0.3);
+}
+[data-theme="dark"] .blog-action-btn.secondary:hover {
+  border-color: #6366f1;
+  color: #818cf8;
+  background: rgba(99,102,241,0.1);
 }

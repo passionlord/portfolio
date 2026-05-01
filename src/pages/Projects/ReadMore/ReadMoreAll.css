@@ -516,3 +516,39 @@ h4 {
     padding: 40px 25px;
   }
 }
+
+/* ====== DARK MODE — PROJECT READMORE ====== */
+[data-theme="dark"] .readmore-page {
+  background: #0f172a;
+}
+[data-theme="dark"] .readmore-body { background: #0f172a; }
+[data-theme="dark"] .readmore-image-wrap {
+  border-color: rgba(99,102,241,0.2);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+}
+[data-theme="dark"] .readmore-description { color: #cbd5e1; }
+[data-theme="dark"] .readmore-tag {
+  background: rgba(99,102,241,0.12);
+  color: #a5b4fc;
+  border-color: rgba(99,102,241,0.25);
+}
+[data-theme="dark"] .readmore-btn--outline {
+  color: #a5b4fc;
+  border-color: rgba(99,102,241,0.35);
+}
+[data-theme="dark"] .readmore-btn--outline:hover {
+  background: rgba(99,102,241,0.12);
+  border-color: #6366f1;
+}
+/* personalWrapper dark mode */
+[data-theme="dark"] .personalWrapper {
+  background: #0f172a;
+}
+[data-theme="dark"] .personalWrapper__title > .personalWrapper__title-h1 {
+  color: #f1f5f9;
+}
+[data-theme="dark"] .personalWrapper__para {
+  background: #1e293b;
+  color: #cbd5e1;
+  border: 1px solid rgba(99,102,241,0.15);
+}

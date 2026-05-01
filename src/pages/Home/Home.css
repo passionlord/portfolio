@@ -1,4 +1,4 @@
-/* Modern Portfolio - Home Page Styles */
+﻿/* Modern Portfolio - Home Page Styles */
 
 * {
   margin: 0;
@@ -19,6 +19,26 @@
   --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --hero-bg: linear-gradient(135deg, #f8f9ff 0%, #e8eaff 100%);
+  --section-bg: #f8fafc;
+  --border-color: #e5e7eb;
+  --body-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --text-dark: #f1f5f9;
+  --text-light: #94a3b8;
+  --card-bg: #1e293b;
+  --light-bg: #0f172a;
+  --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --section-bg: #1e293b;
+  --border-color: rgba(99, 102, 241, 0.2);
+  --body-bg: #0f172a;
+}
+
+[data-theme="dark"] body {
+  background: var(--body-bg);
+  color: var(--text-dark);
 }
 
 /* Custom Cursor */
@@ -38,7 +58,7 @@
 .modern-hero {
   min-height: 100vh;
   padding: 120px 5% 80px;
-  background: linear-gradient(135deg, #f8f9ff 0%, #e8eaff 100%);
+  background: var(--hero-bg, linear-gradient(135deg, #f8f9ff 0%, #e8eaff 100%));
   position: relative;
   overflow: hidden;
 }
@@ -104,6 +124,20 @@
   font-family: "Raleway", sans-serif;
   margin-bottom: 16px;
   font-weight: 500;
+  min-height: 2.2rem;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  color: var(--primary-color);
+  font-weight: 300;
+  animation: blink-cursor 0.75s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* Visitor Counter */
@@ -522,4 +556,33 @@
     width: 100%;
     justify-content: center;
   }
+}
+
+/* ====== DARK MODE OVERRIDES ====== */
+[data-theme="dark"] .modern-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+[data-theme="dark"] .interests-section {
+  background: #0f172a;
+}
+
+[data-theme="dark"] .interest-card {
+  background: linear-gradient(145deg, #1e293b 0%, #1a2540 100%);
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .interest-card:hover {
+  box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+}
+
+[data-theme="dark"] .visual-card {
+  background: linear-gradient(145deg, #1e293b 0%, #2d3748 100%);
+}
+
+[data-theme="dark"] .visitor-counter {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #94a3b8;
 }

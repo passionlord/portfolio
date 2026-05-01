@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
-import { HiMenu, HiX } from "react-icons/hi";
+import { HiMenu, HiX, HiSun, HiMoon } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDarkMode } from "../../hooks/useDarkMode";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dark, setDark] = useDarkMode();
   const location = useLocation();
 
   useEffect(() => {
@@ -66,15 +68,27 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <Link to="/login" className="navbar-cta">
+          <div className="navbar-right">
             <motion.button
-              className="cta-button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="dark-mode-toggle"
+              onClick={() => setDark(!dark)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Toggle dark mode"
             >
-              Get Started
+              {dark ? <HiSun /> : <HiMoon />}
             </motion.button>
-          </Link>
+
+            <Link to="/login" className="navbar-cta">
+              <motion.button
+                className="cta-button"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started
+              </motion.button>
+            </Link>
+          </div>
 
           <div className="mobile-toggle" onClick={() => setToggleMenu(!toggleMenu)}>
             {toggleMenu ? <HiX size={28} /> : <HiMenu size={28} />}

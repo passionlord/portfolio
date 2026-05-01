@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { images } from "../../constants";
 import "./Home.css";
@@ -9,9 +9,44 @@ import { motion } from "framer-motion";
 import { useVisitorCount } from "../../hooks/useVisitorCount";
 import Guestbook from "../../components/Guestbook/Guestbook";
 
+const ROLES = [
+  "Business Intelligence Analyst",
+  "Data Engineer",
+  "AI Solutions Developer",
+  "Power BI Specialist",
+  "ETL Pipeline Architect",
+];
+
+function useTypewriter(words, typingSpeed = 80, deletingSpeed = 40, pause = 1800) {
+  const [displayed, setDisplayed] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = words[wordIndex % words.length];
+    let timeout;
+
+    if (!isDeleting && displayed.length < current.length) {
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), typingSpeed);
+    } else if (!isDeleting && displayed.length === current.length) {
+      timeout = setTimeout(() => setIsDeleting(true), pause);
+    } else if (isDeleting && displayed.length > 0) {
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length - 1)), deletingSpeed);
+    } else if (isDeleting && displayed.length === 0) {
+      setIsDeleting(false);
+      setWordIndex((i) => i + 1);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pause]);
+
+  return displayed;
+}
+
 const Home = () => {
   const cursorRef = useRef(null);
   const visitorCount = useVisitorCount();
+  const typedRole = useTypewriter(ROLES);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -80,7 +115,7 @@ const Home = () => {
               className="hero-role"
               variants={itemVariants}
             >
-              Business Intelligence & Data Analyst
+              {typedRole}<span className="typewriter-cursor">|</span>
             </motion.p>
 
             {visitorCount !== null && (

@@ -32,19 +32,45 @@ const AboutUs = () => {
     });
   };
 
-  const skills = [
-    { name: "SQL Server", icon: <SiMicrosoftsqlserver />, level: 95 },
-    { name: "PostgreSQL", icon: <SiPostgresql />, level: 90 },
-    { name: "Power BI", icon: <SiPowerbi />, level: 95 },
-    { name: "SSIS & ETL", icon: <HiDatabase />, level: 90 },
-    { name: "Data Analytics", icon: <HiChartBar />, level: 95 },
-    { name: "OpenAI GPT", icon: <SiOpenai />, level: 85 },
-    { name: "React.js", icon: <FaReact />, level: 90 },
-    { name: "Node.js", icon: <FaNodeJs />, level: 85 },
-    { name: "Python", icon: <FaPython />, level: 80 },
-    { name: "Git/GitHub", icon: <FaGitAlt />, level: 90 },
-    { name: "Visual Studio", icon: <SiVisualstudio />, level: 90 },
-    { name: "JavaScript", icon: <FaJs />, level: 85 },
+  const skillGroups = [
+    {
+      category: "Data & Analytics",
+      color: "#6366f1",
+      bg: "rgba(99,102,241,0.08)",
+      border: "rgba(99,102,241,0.2)",
+      items: [
+        { name: "SQL Server", icon: <SiMicrosoftsqlserver /> },
+        { name: "PostgreSQL", icon: <SiPostgresql /> },
+        { name: "Power BI", icon: <SiPowerbi /> },
+        { name: "SSIS & ETL", icon: <HiDatabase /> },
+        { name: "Data Analytics", icon: <HiChartBar /> },
+      ]
+    },
+    {
+      category: "AI & Automation",
+      color: "#a855f7",
+      bg: "rgba(168,85,247,0.08)",
+      border: "rgba(168,85,247,0.2)",
+      items: [
+        { name: "OpenAI GPT", icon: <SiOpenai /> },
+        { name: "Azure OpenAI", icon: <SiOpenai /> },
+        { name: "RAG Systems", icon: <HiChartBar /> },
+      ]
+    },
+    {
+      category: "Web Development",
+      color: "#ec4899",
+      bg: "rgba(236,72,153,0.08)",
+      border: "rgba(236,72,153,0.2)",
+      items: [
+        { name: "React.js", icon: <FaReact /> },
+        { name: "Node.js", icon: <FaNodeJs /> },
+        { name: "JavaScript", icon: <FaJs /> },
+        { name: "Python", icon: <FaPython /> },
+        { name: "Git/GitHub", icon: <FaGitAlt /> },
+        { name: "Visual Studio", icon: <SiVisualstudio /> },
+      ]
+    }
   ];
 
   const timeline = [
@@ -145,29 +171,37 @@ const AboutUs = () => {
           <p className="section-subtitle">Technologies and tools I work with</p>
         </div>
 
-        <div className="skills-grid">
-          {skills.map((skill, index) => (
+        <div className="skill-groups">
+          {skillGroups.map((group, gi) => (
             <motion.div
-              key={index}
-              className="skill-card"
-              initial={{ opacity: 0, y: 20 }}
+              key={gi}
+              className="skill-group"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -5 }}
+              transition={{ delay: gi * 0.15, duration: 0.5 }}
+              style={{ "--group-color": group.color, "--group-bg": group.bg, "--group-border": group.border }}
             >
-              <div className="skill-icon">{skill.icon}</div>
-              <h4 className="skill-name">{skill.name}</h4>
-              <div className="skill-bar">
-                <motion.div
-                  className="skill-progress"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.3, duration: 0.8 }}
-                />
+              <div className="skill-group-header">
+                <span className="skill-group-dot" style={{ background: group.color }}></span>
+                <h4 className="skill-group-title">{group.category}</h4>
               </div>
-              <span className="skill-percentage">{skill.level}%</span>
+              <div className="skill-chips">
+                {group.items.map((skill, si) => (
+                  <motion.div
+                    key={si}
+                    className="skill-chip"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: gi * 0.15 + si * 0.05, duration: 0.3 }}
+                    whileHover={{ scale: 1.07, y: -2 }}
+                  >
+                    <span className="skill-chip-icon" style={{ color: group.color }}>{skill.icon}</span>
+                    <span className="skill-chip-name">{skill.name}</span>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
@@ -225,7 +259,7 @@ const AboutUs = () => {
 
       {/* Certifications Section */}
       <motion.section
-        className="skills-section"
+        className="certs-section"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -236,81 +270,34 @@ const AboutUs = () => {
           <p className="section-subtitle">Professional achievements and recognitions</p>
         </div>
 
-        <div className="skills-grid">
-          <motion.div
-            className="skill-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ y: -5 }}
-          >
-            <div className="skill-icon" style={{ fontSize: '3rem' }}>🏆</div>
-            <h4 className="skill-name">Change Maker Award 2025</h4>
-            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
-              AI-powered analytics solution reducing bill rejections by 80%
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="skill-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            whileHover={{ y: -5 }}
-          >
-            <div className="skill-icon" style={{ fontSize: '3rem' }}>🏆</div>
-            <h4 className="skill-name">Change Maker Award 2024</h4>
-            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
-              Secure web application automating financial calculations
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="skill-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            whileHover={{ y: -5 }}
-          >
-            <div className="skill-icon" style={{ fontSize: '3rem' }}>⭐</div>
-            <h4 className="skill-name">Flare Award 2025</h4>
-            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
-              Employee of Semester - Azure OpenAI Chatbot with RAG
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="skill-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            whileHover={{ y: -5 }}
-          >
-            <div className="skill-icon" style={{ fontSize: '3rem' }}>☁️</div>
-            <h4 className="skill-name">Microsoft Azure AZ-900</h4>
-            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
-              Azure Fundamentals - 2026
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="skill-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            whileHover={{ y: -5 }}
-          >
-            <div className="skill-icon" style={{ fontSize: '3rem' }}>📱</div>
-            <h4 className="skill-name">Google Digital Marketing</h4>
-            <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>
-              Fundamentals of Digital Marketing - 2020
-            </p>
-          </motion.div>
+        <div className="certs-grid">
+          {[
+            { emoji: "🏆", title: "Change Maker Award 2025", org: "Orange Business", desc: "AI-powered analytics solution reducing bill rejections by 80%", type: "award" },
+            { emoji: "🏆", title: "Change Maker Award 2024", org: "Orange Business", desc: "Secure web application automating financial calculations", type: "award" },
+            { emoji: "⭐", title: "Flare Award 2025", org: "Orange Business", desc: "Employee of Semester — Azure OpenAI Chatbot with RAG", type: "award" },
+            { emoji: "☁️", title: "Microsoft Azure AZ-900", org: "Microsoft", desc: "Azure Fundamentals Certification — 2026", type: "cert" },
+            { emoji: "📱", title: "Google Digital Marketing", org: "Google", desc: "Fundamentals of Digital Marketing — 2020", type: "cert" },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className={`cert-card cert-card--${item.type}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              whileHover={{ y: -6 }}
+            >
+              <span className="cert-emoji">{item.emoji}</span>
+              <div className="cert-body">
+                <h4 className="cert-title">{item.title}</h4>
+                <span className="cert-org">{item.org}</span>
+                <p className="cert-desc">{item.desc}</p>
+              </div>
+              <span className={`cert-badge cert-badge--${item.type}`}>
+                {item.type === "award" ? "Award" : "Certification"}
+              </span>
+            </motion.div>
+          ))}
         </div>
       </motion.section>
 

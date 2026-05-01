@@ -340,3 +340,34 @@
     font-size: 1.3rem;
   }
 }
+
+/* ====== DARK MODE ====== */
+[data-theme="dark"] .modern-create-post {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+[data-theme="dark"] .create-post-hero {
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1));
+}
+[data-theme="dark"] .create-post-title { color: #f1f5f9; }
+[data-theme="dark"] .create-post-subtitle { color: #94a3b8; }
+[data-theme="dark"] .form-card {
+  background: linear-gradient(145deg, #1e293b 0%, #1a1230 100%);
+  border-color: rgba(99,102,241,0.25);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+[data-theme="dark"] .form-group label { color: #cbd5e1; }
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea,
+[data-theme="dark"] .form-group select {
+  background: #0f172a;
+  border-color: rgba(99,102,241,0.25);
+  color: #f1f5f9;
+}
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder { color: #475569; }
+[data-theme="dark"] .preview-card {
+  background: #1e293b;
+  border-color: rgba(99,102,241,0.2);
+}
+[data-theme="dark"] .preview-card h3 { color: #f1f5f9; }
+[data-theme="dark"] .preview-card p { color: #94a3b8; }
