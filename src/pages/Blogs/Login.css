@@ -217,3 +217,8 @@
   .login-container { padding: 2rem 1.5rem; border-radius: 20px; }
   .login-container h1 { font-size: 1.6rem; }
 }
+-group input:focus {
+  background: #1e293b;
+}
+[data-theme="dark"] .divider-text { color: #64748b; }
+[data-theme="dark"] .divider-line { background: rgba(99,102,241,0.2); }
