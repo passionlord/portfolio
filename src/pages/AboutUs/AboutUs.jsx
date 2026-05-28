@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { images } from "../../constants";
 import "./AboutUs.css";
 import { motion } from "framer-motion";
+import { supabase } from "../Blogs/supabase-config";
 import { 
-  HiMail, HiLocationMarker, HiDownload, HiDatabase, HiChartBar 
+  HiMail, HiLocationMarker, HiDownload, HiDatabase, HiChartBar, HiClock, HiPaperAirplane
 } from "react-icons/hi";
 import { 
   FaReact, FaJs, 
@@ -12,23 +13,113 @@ import {
 import { SiPowerbi, SiPostgresql, SiMicrosoftsqlserver, SiOpenai, SiVisualstudio } from "react-icons/si";
 
 const AboutUs = () => {
+  const MAX_NAME = 80;
+  const MAX_MESSAGE = 1200;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
 
-  const handleSubmit = (e) => {
+  const [submitState, setSubmitState] = useState({
+    status: "idle", // idle | submitting | success | error
+    message: ""
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! I'll get back to you soon.");
+
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedMessage = formData.message.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+      setSubmitState({
+        status: "error",
+        message: "Please fill in all fields before sending your message."
+      });
+      return;
+    }
+
+    if (!emailRegex.test(trimmedEmail)) {
+      setSubmitState({
+        status: "error",
+        message: "Please enter a valid email address."
+      });
+      return;
+    }
+
+    if (trimmedName.length > MAX_NAME) {
+      setSubmitState({
+        status: "error",
+        message: `Name must be ${MAX_NAME} characters or less.`
+      });
+      return;
+    }
+
+    if (trimmedMessage.length > MAX_MESSAGE) {
+      setSubmitState({
+        status: "error",
+        message: `Message must be ${MAX_MESSAGE} characters or less.`
+      });
+      return;
+    }
+
+    setSubmitState({ status: "submitting", message: "" });
+
+    const { error } = await supabase
+      .from("contact_messages")
+      .insert({
+        name: trimmedName,
+        email: trimmedEmail,
+        message: trimmedMessage
+      });
+
+    if (error) {
+      if (error.code === "42P01") {
+        setSubmitState({
+          status: "error",
+          message: "Contact storage table is missing in Supabase. Please create the contact_messages table first."
+        });
+      } else {
+        setSubmitState({
+          status: "error",
+          message: "We could not send your message right now. Please try again in a moment."
+        });
+      }
+      return;
+    }
+
+    setSubmitState({
+      status: "success",
+      message: "Thanks for reaching out. Your message has been saved successfully."
+    });
+
     setFormData({ name: "", email: "", message: "" });
+
+    setTimeout(() => {
+      setSubmitState((prev) => (prev.status === "success" ? { status: "idle", message: "" } : prev));
+    }, 5000);
   };
 
   const handleChange = (e) => {
+    if (submitState.status !== "idle") {
+      setSubmitState({ status: "idle", message: "" });
+    }
+
+    let value = e.target.value;
+    if (e.target.name === "name") {
+      value = value.slice(0, MAX_NAME);
+    }
+    if (e.target.name === "message") {
+      value = value.slice(0, MAX_MESSAGE);
+    }
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: value
     });
   };
 
@@ -313,13 +404,16 @@ const AboutUs = () => {
           <HiDownload size={40} />
           <h3>Download My Resume</h3>
           <p>Get a detailed overview of my experience and qualifications</p>
-          <motion.button
+          <motion.a
+            href="https://drive.google.com/uc?export=download&id=1v_OXjoC6oQeDKcbmMgbFSwHBhUPCf7Yj"
+            target="_blank"
+            rel="noopener noreferrer"
             className="download-btn"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Download CV
-          </motion.button>
+          </motion.a>
         </div>
       </motion.section>
 
@@ -329,70 +423,138 @@ const AboutUs = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.7 }}
       >
-        <div className="section-header">
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">Let's work together on your next project</p>
+        <div className="contact-blob contact-blob--a" aria-hidden="true" />
+        <div className="contact-blob contact-blob--b" aria-hidden="true" />
+
+        <div className="contact-inner">
+          <motion.aside
+            className="contact-left"
+            initial={{ opacity: 0, x: -28 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15, duration: 0.6 }}
+          >
+            <span className="contact-eyebrow">Get In Touch</span>
+            <h2 className="contact-heading">Let's Start a<br />Conversation</h2>
+            <p className="contact-desc">
+              Whether it's feedback, a project idea, or just saying hi — I'm all ears and will get back to you.
+            </p>
+
+            <div className="contact-details">
+              <div className="contact-detail-row">
+                <span className="contact-detail-icon"><HiMail /></span>
+                <div className="contact-detail-text">
+                  <span className="contact-detail-label">Email</span>
+                  <span className="contact-detail-value">raikar7178@gmail.com</span>
+                </div>
+              </div>
+              <div className="contact-detail-row">
+                <span className="contact-detail-icon"><HiLocationMarker /></span>
+                <div className="contact-detail-text">
+                  <span className="contact-detail-label">Location</span>
+                  <span className="contact-detail-value">Mumbai, India</span>
+                </div>
+              </div>
+              <div className="contact-detail-row">
+                <span className="contact-detail-icon"><HiClock /></span>
+                <div className="contact-detail-text">
+                  <span className="contact-detail-label">Response Time</span>
+                  <span className="contact-detail-value">Within 24 hours</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="contact-avail">
+              <span className="contact-avail-dot" aria-hidden="true" />
+              Open to new opportunities
+            </div>
+          </motion.aside>
+
+          <motion.div
+            className="contact-right"
+            initial={{ opacity: 0, x: 28 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.25, duration: 0.6 }}
+          >
+            <form className="modern-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    maxLength={MAX_NAME}
+                    disabled={submitState.status === "submitting"}
+                    autoComplete="name"
+                    required
+                  />
+                  <span className="field-meta">{formData.name.length}/{MAX_NAME}</span>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@example.com"
+                    disabled={submitState.status === "submitting"}
+                    autoComplete="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Write your feedback, idea, or question..."
+                  rows="5"
+                  maxLength={MAX_MESSAGE}
+                  disabled={submitState.status === "submitting"}
+                  required
+                />
+                <div className="form-help-row">
+                  <span className="field-meta">{formData.message.length}/{MAX_MESSAGE}</span>
+                </div>
+              </div>
+
+              {submitState.message && (
+                <p className={`form-alert form-alert--${submitState.status}`} role="status" aria-live="polite">
+                  {submitState.message}
+                </p>
+              )}
+
+              <motion.button
+                type="submit"
+                className="submit-btn"
+                disabled={submitState.status === "submitting"}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {submitState.status === "submitting" ? (
+                  "Sending..."
+                ) : (
+                  <>Send Message <HiPaperAirplane /></>
+                )}
+              </motion.button>
+
+              <p className="form-footnote">Your message is stored securely and only used to reply to you.</p>
+            </form>
+          </motion.div>
         </div>
-
-        <motion.div
-          className="contact-form-container"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          <form className="modern-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your name"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="your.email@example.com"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your message..."
-                rows="6"
-                required
-              />
-            </div>
-
-            <motion.button
-              type="submit"
-              className="submit-btn"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Send Message
-            </motion.button>
-          </form>
-        </motion.div>
       </motion.section>
     </div>
   );

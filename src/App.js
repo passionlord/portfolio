@@ -19,6 +19,7 @@ import ReadMore5 from "./pages/Projects/ReadMore/ReadMore5";
 import ReadMore6 from "./pages/Projects/ReadMore/ReadMore6";
 import ReadMore7 from "./pages/Projects/ReadMore/ReadMore7";
 import { supabase } from "./pages/Blogs/supabase-config";
+import AiChat from "./components/AiChat/AiChat";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -43,30 +44,33 @@ function App() {
   }, []);
 
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/aboutUs" element={<AboutUs />} />
-        <Route
-          path="/blogs"
-          element={<Blogs isAuth={isAuth} setIsAuth={setIsAuth} />}
-        />
-        <Route path="/CreatePost" element={<CreatePost isAuth={isAuth} />} />
-        <Route path="/EditPost/:id" element={<EditPost isAuth={isAuth} />} />
-        <Route path="/post/:id" element={<BlogPost />} />
-        <Route path="/Login" element={<Login setIsAuth={setIsAuth} />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/project/:id" element={<ProjectDetail />} />
-        <Route path="/readMore1" element={<ReadMore1 />} />
-        <Route path="/readMore2" element={<ReadMore2 />} />
-        <Route path="/readMore3" element={<ReadMore3 />} />
-        <Route path="/readMore4" element={<ReadMore4 />} />
-        <Route path="/readMore5" element={<ReadMore5 />} />
-        <Route path="/readMore6" element={<ReadMore6 />} />
-        <Route path="/readMore7" element={<ReadMore7 />} />
-      </Routes>
-    </Layout>
+    <>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route
+            path="/blogs"
+            element={<Blogs isAuth={isAuth} setIsAuth={setIsAuth} />}
+          />
+          <Route path="/CreatePost" element={<CreatePost isAuth={isAuth} />} />
+          <Route path="/EditPost/:id" element={<EditPost isAuth={isAuth} />} />
+          <Route path="/post/:id" element={<BlogPost />} />
+          <Route path="/Login" element={<Login setIsAuth={setIsAuth} />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/readMore1" element={<ReadMore1 />} />
+          <Route path="/readMore2" element={<ReadMore2 />} />
+          <Route path="/readMore3" element={<ReadMore3 />} />
+          <Route path="/readMore4" element={<ReadMore4 />} />
+          <Route path="/readMore5" element={<ReadMore5 />} />
+          <Route path="/readMore6" element={<ReadMore6 />} />
+          <Route path="/readMore7" element={<ReadMore7 />} />
+        </Routes>
+      </Layout>
+      <AiChat />
+    </>
   );
 }
 

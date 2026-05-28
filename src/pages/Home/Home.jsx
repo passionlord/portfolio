@@ -156,16 +156,16 @@ const Home = () => {
               className="hero-social"
               variants={itemVariants}
             >
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://github.com/passionlord" target="_blank" rel="noopener noreferrer" className="social-link">
                 <BsGithub />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://www.linkedin.com/in/vighnesh-raikar-b65249172/" target="_blank" rel="noopener noreferrer" className="social-link">
                 <BsLinkedin />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="social-link">
                 <BsInstagram />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="social-link">
                 <BsTwitter />
               </a>
               <a href="mailto:raikar7178@gmail.com" className="social-link">

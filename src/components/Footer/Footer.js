@@ -6,13 +6,8 @@ import {
   FaGithub, FaLinkedin, FaTwitter, FaInstagram, 
   FaHeart, FaEnvelope 
 } from "react-icons/fa";
-import { HiArrowUp } from "react-icons/hi";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const quickLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/AboutUs" },
@@ -21,10 +16,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <FaGithub />, url: "https://github.com", label: "GitHub" },
-    { icon: <FaLinkedin />, url: "https://linkedin.com", label: "LinkedIn" },
-    { icon: <FaTwitter />, url: "https://twitter.com", label: "Twitter" },
-    { icon: <FaInstagram />, url: "https://instagram.com", label: "Instagram" },
+    { icon: <FaGithub />, url: "https://github.com/passionlord", label: "GitHub" },
+    { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/vighnesh-raikar-b65249172/", label: "LinkedIn" },
+    { icon: <FaTwitter />, url: "https://twitter.com/", label: "Twitter" },
+    { icon: <FaInstagram />, url: "https://instagram.com/", label: "Instagram" },
   ];
 
   return (
@@ -76,7 +71,7 @@ const Footer = () => {
               <ul className="footer-list">
                 <li>
                   <a href="mailto:contact@vighnesh.dev" className="footer-link">
-                    <FaEnvelope /> contact@vighnesh.dev
+                    <FaEnvelope /> raikar7178@gmail.com
                   </a>
                 </li>
                 <li className="footer-link">India</li>
@@ -93,18 +88,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Scroll to Top Button */}
-        <motion.button
-          className="scroll-top-btn"
-          onClick={scrollToTop}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <HiArrowUp />
-        </motion.button>
+
       </div>
     </footer>
   );

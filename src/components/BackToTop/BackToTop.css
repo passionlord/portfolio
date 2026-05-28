@@ -1,7 +1,7 @@
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 96px;
+  right: 28px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -25,4 +25,14 @@
 
 [data-theme="dark"] .back-to-top {
   box-shadow: 0 8px 24px rgba(139, 92, 246, 0.5);
+}
+
+@media (max-width: 480px) {
+  .back-to-top {
+    bottom: 84px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
 }
