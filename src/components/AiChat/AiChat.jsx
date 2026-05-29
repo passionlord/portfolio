@@ -6,7 +6,7 @@ import { supabase } from "../../pages/Blogs/supabase-config";
 import vighneshImg from "../../assets/vighnesh.png";
 import "./AiChat.css";
 
-const GEMINI_KEY = process.env.REACT_APP_GEMINI_API_KEY || "AIzaSyDRXnZaZj6U3ax1ul5kLIpq5Ubcf2eBr88";
+const GEMINI_KEY = process.env.REACT_APP_GEMINI_API_KEY;
 const ai = new GoogleGenAI({ apiKey: GEMINI_KEY });
 
 const SYSTEM_PROMPT = `You are an AI assistant on Vighnesh Raikar's portfolio website. Answer questions about Vighnesh in a friendly, concise, and professional manner. Speak as if you represent his portfolio.
@@ -122,7 +122,7 @@ export default function AiChat() {
 
       if (useStream) {
         const stream = await ai.models.generateContentStream({
-          model: "gemini-3.5-flash",
+          model: "gemini-2.5-flash",
           contents: history,
           config,
         });
